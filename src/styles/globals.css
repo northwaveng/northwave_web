@@ -1,0 +1,64 @@
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    user-select: none !important;
+    pointer-events: none !important;
+}
+
+.bottom_spacer {
+    height: 4rem;
+}
+
+.grey {
+    color: #f0f0f0 !important;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.bg_black {
+    background-color: black !important;
+}
+
+.bg_grey {
+    background: #f0f0f0 !important;
+}
+
+.grey_dark {
+    color: #898989 !important;
+}
+
+.bg_grey_dark {
+    background: #898989 !important;
+}
+
+.bg_white {
+    background: white !important;
+}
+
+.trans {
+    background: transparent !important;
+}
+
+.bg_primary {
+    background: #000066 !important;
+}
+
+/* others */
+.border_none {
+    border: none !important;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

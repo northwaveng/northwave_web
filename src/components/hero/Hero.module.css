@@ -1,0 +1,21 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    background: url('/hero.png') center/cover no-repeat;
+}
+
+.heroTitle {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.heroDescription {
+    font-size: 1.5rem;
+}
