@@ -9,7 +9,7 @@ export default function HomePage() {
   // page default data
   const pageName = "NorthWave | The contribution center";
   const pageDesc = "NorthWave is an indigenous financial institution that focuses on empowering people to attain financial freedom with a community of friends, family and colleagues.";
-  const baseURL = "https://northwave.ng.com/";
+  const baseURL = "https://northwaveng.com/";
 
   // web site schema
   const wSSchema = getWSSchema(baseURL);

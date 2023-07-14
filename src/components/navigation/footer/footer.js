@@ -72,7 +72,7 @@ export default function Footer() {
                 <div className="row mt-5">
                     <div className="col text-center">
                         <Link className="grey_dark text-decoration-none" href="/" as="/">
-                            All rights reserved © www.northwave.ng.com
+                            All rights reserved © www.northwaveng.com
                         </Link>
                     </div>
                 </div>
