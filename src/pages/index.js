@@ -59,7 +59,7 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content={pageDesc} />
         <meta name="keywords" content="northwave, contribution, collection, bank, savings, groups, finance, fintech, software, freedom, community" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#000066" />
         <link rel="icon" type="image/x-icon" href="/logo.png" />
         <meta name="author" content="NorthWave" />
         <title>{pageName}</title>
