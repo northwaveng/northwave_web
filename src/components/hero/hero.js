@@ -17,8 +17,8 @@ export default function Hero() {
                             </small>
 
                             <div className="d-flex flex-row my-4">
-                                <Link href="#" className="btn btn-light mx-2 mr-2"><Apple /> Download</Link>
-                                <Link href="#" className="btn btn-light mx-2 ml-2"><Android /> Download</Link>
+                                <Link href="#" target="_blank" className="btn btn-light mx-2 mr-2"><Apple /> Download</Link>
+                                <Link href="https://play.google.com/store/apps/details?id=ng.com.northwave" target="_blank" className="btn btn-light mx-2 ml-2"><Android /> Download</Link>
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ export default function Hero() {
                     <div className="col-md-6">
                         <div className="m-2">
                             <img
-                                src="/phone.png"
+                                src="/image/phone.png"
                                 alt="Phone"
                                 className="img-fluid"
                             />

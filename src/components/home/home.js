@@ -47,7 +47,7 @@ export default function Home() {
                 <div className="row">
                     <div className="col-md-6 text-center">
                         <div className="m-2">
-                            <img src="verification.png" alt="verification" width="70%" />
+                            <img src="/image/verification.png" alt="verification" width="70%" />
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="row mt-5">
                     <div className="col-md-6">
                         <div className="m-2">
-                            <img src="market.png" alt="market" width="100%" className="rounded-4" />
+                            <img src="/image/market.png" alt="market" width="100%" className="rounded-4" />
                         </div>
                     </div>
 

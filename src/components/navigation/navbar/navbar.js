@@ -26,7 +26,7 @@ export default function Navbar() {
             <div className="container-fluid">
                 <Link className="navbar-brand text-white" href="/" as="/">
                     <img
-                        src="/logo.png"
+                        src="/logo/logo_text_dark_trans.png"
                         alt="logo"
                         className="rounded"
                         width={50}
