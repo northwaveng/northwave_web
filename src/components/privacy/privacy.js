@@ -147,7 +147,7 @@ export default function Policy() {
                     <p className="my-3">
                         Your consent; Where you agree to us collecting your Personal Information by using our Services.
                         We have a contractual obligation: Without your Personal Information, we cannot provide our Services to you.
-                        We have a legal obligation: To ensure we are fully compliant with all applicable Financial legislation's such as Anti-Money Laundering and Counter Terrorist Financing Laws, we must collect and store your Personal Information. We protect against fraud by checking your identity with your Personal Information.
+                        We have a legal obligation: To ensure we are fully compliant with all applicable Financial legislation&apos;s such as Anti-Money Laundering and Counter Terrorist Financing Laws, we must collect and store your Personal Information. We protect against fraud by checking your identity with your Personal Information.
                     </p>
 
                     <p className="my-3">
