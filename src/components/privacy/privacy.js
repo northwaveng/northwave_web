@@ -29,7 +29,7 @@ export default function Policy() {
                     </p>
 
                     <p className="my-3">
-                        Northwave”, “we” “us” or our” in this privacy statement means the Northwave's entity that is responsible for processing your personal information.
+                        Northwave”, “we” “us” or our” in this privacy statement means the Northwave&apos;s entity that is responsible for processing your personal information.
                     </p>
 
                     <b>Definition</b>
@@ -111,10 +111,10 @@ export default function Policy() {
 
                     <p className="my-3">
                         Identity Data: Information such as, your full name(s), your government-issued identity number, and your date of birth. This data is to enable us to verify your identity in order to offer our services to you;
-                        In order to experience the full range of Northwave's seamless services including the ability to, we would require your consent granting access to your geo-location and your contacts. You have the right to withdraw your consent allowing us access to your contacts at any time. Please note that where your consent is not given or withdrawn.
+                        In order to experience the full range of Northwave&apos;s seamless services including the ability to, we would require your consent granting access to your geo-location and your contacts. You have the right to withdraw your consent allowing us access to your contacts at any time. Please note that where your consent is not given or withdrawn.
                         Contact Data: This is data that is needed to reach out to you, such as your contact address, email address, telephone number, details of the device you use and billing details;
                         Identification documents :(such as your passport or any Government-issued identity card), a photograph (if applicable) and any other registration information you may provide to prove you are eligible to use our services and in compliance with regulatory requirements on Know Your Customer (KYC);
-                        Log/Technical information: When you access Northwave's services, our servers automatically record information that your browser sends whenever you visit a website, links you have clicked on, length of visit on certain pages, unique device identifier, log-in information, location and other device details.
+                        Log/Technical information: When you access Northwave&apos;s services, our servers automatically record information that your browser sends whenever you visit a website, links you have clicked on, length of visit on certain pages, unique device identifier, log-in information, location and other device details.
                         Financial Data: Information, such as Bank Verification Number (BVN), personal account number, the merchant’s name and location, the date and the total amount of transaction, and other information provided by financial institutions or merchants when we act on their behalf;
                         Transactional Data: These are information relating to a payment when you as a merchant (using one or more of our payment processing services) or as a customer, are using our products or services;
                         Marketing and Communications Data: This includes both a record of your decision to subscribe or to withdraw from receiving marketing materials from us or from our third parties.
@@ -200,7 +200,7 @@ export default function Policy() {
                     </p>
 
                     <p className="my-3">
-                        We have your consent. We require opt-in consent for the sharing of any personal information; We share Personal Information with third parties directly authorized by you to receive Personal Information, such as when you authorize a third party application provider to access your account. The use of your Personal Information by an authorized third party is subject to the third party's privacy policy and Northwave shall bear no liability for any breach which may arise from such authorization by you.
+                        We have your consent. We require opt-in consent for the sharing of any personal information; We share Personal Information with third parties directly authorized by you to receive Personal Information, such as when you authorize a third party application provider to access your account. The use of your Personal Information by an authorized third party is subject to the third party&apos;s privacy policy and Northwave shall bear no liability for any breach which may arise from such authorization by you.
                         We provide such information to our subsidiaries, affiliated companies or other trusted businesses or persons for the purpose of processing personal information on our behalf. We require that these parties agree to process such information based on our instructions and in compliance with this Privacy Policy and any other appropriate confidentiality and security measures.
                         We have a good faith belief that access, use, preservation or disclosure of such information is reasonably necessary to:
                         satisfy any applicable law, regulation, legal process or enforceable governmental request,
@@ -253,7 +253,7 @@ export default function Policy() {
 
                     <p className="my-3">
                         9. Minor
-                        Northwave's websites and applications are not directed at persons under the age of eighteen (18) and we do not collect any Personal Information knowingly or directly from minors who fall within this category.
+                        Northwave&apos;s websites and applications are not directed at persons under the age of eighteen (18) and we do not collect any Personal Information knowingly or directly from minors who fall within this category.
                     </p>
 
                     <p className="my-3">
@@ -267,7 +267,7 @@ export default function Policy() {
 
                     <p className="my-3">
                         11. Data Protection Officer
-                        Northwave has appointed a Data Protection Officer(s) (DPO) responsible for overseeing the Company's data protection strategy and its implementation to ensure compliance with the NDPR requirements. The DPO is knowledgeable on data privacy and protection principles and is familiar with the provisions of the NDPR.
+                        Northwave has appointed a Data Protection Officer(s) (DPO) responsible for overseeing the Company&apos;s data protection strategy and its implementation to ensure compliance with the NDPR requirements. The DPO is knowledgeable on data privacy and protection principles and is familiar with the provisions of the NDPR.
                     </p>
 
                     <p className="my-3">
@@ -277,7 +277,7 @@ export default function Policy() {
 
                     <p className="my-3">
                         13. Data Protection Audit
-                        Northwave shall conduct an annual data protection audit through a licensed Data Protection Compliance Organization (DPCOs) to verify Northwave's compliance with the provisions of the NDPR and other applicable data protection laws.
+                        Northwave shall conduct an annual data protection audit through a licensed Data Protection Compliance Organization (DPCOs) to verify Northwave&apos;s compliance with the provisions of the NDPR and other applicable data protection laws.
                         The audit report will be certified and filed by the DPCO to the National Information Technology Development Agency (NITDA) as required under the NDPR.
                     </p>
 
