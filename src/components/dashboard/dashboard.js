@@ -5,6 +5,7 @@ import Loader from '@/components/loader/loader';
 import { db } from "@/firebase/fire_config";
 import { doc, setDoc, collection, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { v4 } from 'uuid';
+import AddMember from '@/components/dashboard/add_member';
 
 export default function Dashboard({ user }) {
     const [loading, setLoading] = useState(false);
@@ -57,18 +58,7 @@ export default function Dashboard({ user }) {
             });
     };
 
-    if (user.hasGroup) {
-        
-        return (
-            <div className="dashboard_content">
-                <div className="container">
-                    <div className="row justify-content-center">
-
-                    </div>
-                </div>
-            </div>
-        )
-    }
+    if (user.hasGroup) return <AddMember user={user}/>;
 
     return (
         <div className="dashboard_content">
@@ -166,5 +156,5 @@ export default function Dashboard({ user }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

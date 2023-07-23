@@ -1,0 +1,10 @@
+.add_member_card {
+    height: 500px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.add_member_card::-webkit-scrollbar {
+    display: none;
+}
