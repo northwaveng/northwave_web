@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Loader from '@/components/loader/loader';
 import { doc, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/router';
-import Cryptograph from 'cryptograph';
+import Cryptograph from '@/cryptograph';
 import { useAuth } from '@/firebase/fire_auth_context';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import randomNum from '@/components/utils/randomNum'
