@@ -30,10 +30,13 @@ export default function Signin() {
                     .then((docSnapshot) => {
                         if (docSnapshot.exists()) {
                             const isAdmin = docSnapshot.data().isAdmin;
+                            const hasVerified = docSnapshot.data().kyc != null;
 
                             if (isAdmin) {
                                 Cookies.set("NWSignedIn", true, { expires: 14 });
-                                router.push("/dashboard");
+
+                                !hasVerified ? router.push("/dashboard/verification") : router.push("/dashboard");
+
                                 toast.success("Welcome Back Admin.");
                             }
                             else {

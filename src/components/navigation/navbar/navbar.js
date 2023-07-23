@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from '@/components/navigation/navbar/Navbar.module.css'
 import { useAuth } from '@/firebase/fire_auth_context';
+import { Logout } from 'iconsax-react';
 
 export default function Navbar() {
     const { loading, authUser, logOut } = useAuth();
@@ -22,9 +23,14 @@ export default function Navbar() {
 
                     {!loading && authUser
                         ?
-                        <button className="btn btn-light shadow-sm px-3 py-2" onClick={logOut}>
-                            Log Out
-                        </button>
+                        <>
+                            <Link className="btn btn-light shadow-sm mx-2 px-3 py-2" href="/dashboard" as="/dashboard">
+                                Dashboard
+                            </Link>
+                            <button className="btn text-white mx-2 px-3 py-2" onClick={logOut}>
+                                <Logout />
+                            </button>
+                        </>
                         :
                         <>
                             <Link className="btn btn-light shadow-sm mx-2 px-3 py-2" href="/auth/signin" as="/auth/signin">
