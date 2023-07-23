@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 # cryptograph
-cryptograph.js
+/components/utils/cryptograph.js
