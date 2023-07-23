@@ -117,7 +117,7 @@ export default function Home() {
                             <h1 className="text-black my-2">FAQs</h1>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
                                     Why is NorthWave better to any offline contributions?
                                 </a>
 
@@ -134,7 +134,7 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
                                     Is NorthWave legal?
                                 </a>
 
@@ -145,7 +145,7 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
                                     Why should I trust other users will pay their contributions?
                                 </a>
 
@@ -157,7 +157,7 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
                                     What are payment methods?
                                 </a>
 
@@ -167,7 +167,7 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
                                     What are withdrawal options?
 
                                 </a>
@@ -178,7 +178,7 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a class="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
+                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
                                     What are the groups circles?
                                 </a>
 
