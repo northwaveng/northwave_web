@@ -44,6 +44,7 @@ export default function Signup() {
                         phoneNumber: phoneNumber,
                         group: "",
                         isAdmin: true,
+                        hasGroup: false,
                         joinedOn: serverTimestamp(),
                         kyc: null
                     };

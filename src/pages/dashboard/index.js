@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Verification from '@/components/dashboard/verification'
 import { getWSSchema, getWPSchema, getLBSchema } from '@/components/schema';
+import Dashboard from '@/components/dashboard/dashboard'
 import { useAuth } from '@/firebase/fire_auth_context';
 import { db } from '@/firebase/fire_config';
 import { useState, useEffect } from 'react';
@@ -10,16 +10,17 @@ import NeedAccess from '@/components/restrictions/need_access';
 import Loader from '@/components/loader/loader';
 import { toast } from 'react-toastify';
 
-export default function VerificationPage() {
+export default function DashboardPage() {
     const { authUser } = useAuth();
+    const [user, setUser] = useState(null);
     const [isAdmin, setIsAdmin] = useState(null);
     const [hasVerified, setHasVerified] = useState(null);
 
     // page default data
-    const pageName = "NorthWave - Verification";
+    const pageName = "NorthWave - Dashboard";
     const pageDesc = "NorthWave is an indigenous financial institution that focuses on empowering people to attain financial freedom with a community of friends, family and colleagues.";
-    const baseURL = "https://northwaveng.com/";
-    const pageURL = "https://northwaveng.com/dashboard/verification";
+    const baseURL = "https://northwaveng.com";
+    const pageURL = "https://northwaveng.com/dashboard";
 
     // web site schema
     const wSSchema = getWSSchema(pageURL);
@@ -76,6 +77,7 @@ export default function VerificationPage() {
             const unsubscribe = onSnapshot(userRef, (snapshot) => {
                 if (snapshot.exists()) {
                     const data = snapshot.data();
+                    setUser(data);
                     setIsAdmin(data.isAdmin);
                     setHasVerified(data.kyc != null);
                 } else {
@@ -100,7 +102,7 @@ export default function VerificationPage() {
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content={pageDesc} />
                 <meta name="keywords" content="northwave, contribution, collection, bank, savings, groups, finance, fintech, software, freedom, community" />
-                <meta name="theme-color" content="#ffffff" />
+                <meta name="theme-color" content="#346BC8" />
                 <link rel="icon" type="image/x-icon" href="/logo/logo_trans.png" />
                 <meta name="author" content="NorthWave" />
                 <title>{pageName}</title>
@@ -119,9 +121,8 @@ export default function VerificationPage() {
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(lBSchema) }} />
             </Head>
 
-
             {/* page content */}
-            <Verification />
+            <Dashboard user={user} />
         </>
     )
 }
