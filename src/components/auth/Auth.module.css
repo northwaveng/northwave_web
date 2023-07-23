@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    height: 100vh;
+    background: white;
+    color: #0c1a2a;
+    text-align: center;
+}
+
+.auth_btn,
+.auth_btn:focus {
+    background: #346BC8 !important;
+    border: none !important;
+    padding: 1rem 1.5rem;
+}
+
+.auth_btn:hover {
+    background: #346BC8 !important;
+    border: 1px #346BC8 solid !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.datepicker {
+  border: none;
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  padding: 0;
+  height: auto;
+  font-size: 1rem;
+}
