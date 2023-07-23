@@ -91,7 +91,7 @@ export default function VerificationPage() {
 
     if (isAdmin === null) return <Loader fullHeight={true} />
 
-    if (!isAdmin || !hasVerified) return <NeedAccess fullHeight={true} />
+    if (!isAdmin || hasVerified) return <NeedAccess fullHeight={true} />
 
     return (
         <>
