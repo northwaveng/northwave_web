@@ -28,7 +28,7 @@ export default function Group({ user }) {
         });
 
         return () => { unsubscribe(); };
-    }, []);
+    }, [user.group]);
 
     // listening to members
     useEffect(() => {
