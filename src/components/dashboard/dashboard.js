@@ -6,6 +6,7 @@ import { db } from "@/firebase/fire_config";
 import { doc, setDoc, collection, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import AddMember from '@/components/dashboard/add_member';
+import Group from '@/components/dashboard/group';
 
 export default function Dashboard({ user }) {
     const [loading, setLoading] = useState(false);
@@ -58,7 +59,9 @@ export default function Dashboard({ user }) {
             });
     };
 
-    if (user.hasGroup) return <AddMember user={user}/>;
+    if (user.hasGroup && !user.hasMembers) return <AddMember user={user} />;
+
+    if (user.hasGroup && user.hasMembers) return <Group user={user} />;
 
     return (
         <div className="dashboard_content">

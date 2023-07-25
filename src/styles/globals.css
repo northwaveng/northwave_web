@@ -209,7 +209,6 @@ img {
     max-height: 100vh;
     padding-top: 1rem;
     overflow: auto;
-    background-color: #fafafa;
 }
 
 @media (max-width: 992px) {

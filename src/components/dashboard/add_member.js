@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { toast } from "react-toastify";
 import Loader from '@/components/loader/loader';
 import { db } from "@/firebase/fire_config";
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, updateDoc, doc } from "firebase/firestore";
 import capitalize from '@/components/utils/capitalize'
 
 export default function AddMember({ user }) {
@@ -34,10 +34,48 @@ export default function AddMember({ user }) {
         }
     };
 
-    const onAddMembers = () => {
+    const onAddMembers = async () => {
         setLoading(true);
-        console.log([...selectedList, user.email]);
-        setLoading(false);
+        toast.info("Adding members...");
+
+        // group
+        const groupDoc = doc(db, "groups", user.group);
+        const groupData = { "members": [...selectedList, user.email] };
+
+        await updateDoc(groupDoc, groupData).then(async () => {
+            // user
+            const userDoc = doc(db, "users", user.email);
+            const userData = { "hasGroup": true, "hasMembers": true };
+
+            await updateDoc(userDoc, userData).then(() => {
+                toast.info("Updating members group...");
+
+                [...selectedList, user.email].forEach(async (member, index) => {
+                    // member 
+                    const memberDoc = doc(db, "users", member);
+                    const memberData = {
+                        "group": user.group,
+                        "groupCollectionPosition": index,
+                        "hasPaymentMade": false
+                    };
+
+                    await updateDoc(memberDoc, memberData).then(() => {
+                        setLoading(false);
+                        toast.success("Members added.");
+                    }).catch((error) => {
+                        setLoading(false);
+                        toast.error(`Something is wrong: ${error.message}`);
+                    });
+                });
+            }).catch((error) => {
+                setLoading(false);
+                toast.error(`Something is wrong: ${error.message}`);
+            });
+        }).catch((error) => {
+            setLoading(false);
+            toast.error(`Something is wrong: ${error.message}`);
+        });
+
 
     };
 
@@ -58,12 +96,12 @@ export default function AddMember({ user }) {
                         <div className={`m-2 py-4 px-3 secondary border_none card shadow text-center ${styles.add_member_card}`}>
                             <h6 className="mb-3 pb-0"><User size={32} className="mx-2" /> Add Members</h6>
 
-                            <div className="mb-3 primary">
-                                You will be automatically added to members list.
-                            </div>
+                            <small className="mb-3 primary">
+                                You will be automatically added to members list. Make sure members have completed verification to appear here.
+                            </small>
 
                             {users && users.length > 0 ? users.map((user) => (
-                                !user.group.length > 0 &&
+                                !user.group.length > 0 && user.kyc != null &&
                                 <button
                                     onClick={() => onSelected(user.email)}
                                     className={`d-flex flex-row alert ${selectedList.includes(user.email) && "alert-primary"} p-1 my-1`}
