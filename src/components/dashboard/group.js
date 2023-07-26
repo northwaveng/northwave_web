@@ -43,7 +43,7 @@ export default function Group({ user }) {
         });
 
         return () => { unsubscribe(); };
-    }, []);
+    }, [user.group]);
 
     const onUpdateGroup = event => {
         event.preventDefault();
