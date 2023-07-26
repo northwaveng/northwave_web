@@ -223,8 +223,8 @@ export default function Group({ user }) {
                             </div>
 
                             <div className="row">
-                                {members && members.map((member) => (
-                                    <div className="col-sm-6">
+                                {members && members.map((member, index) => (
+                                    <div key={index} className="col-sm-6">
                                         <div className="alert alert-primary p-2">
                                             <div className="w-100 d-flex flex-row " key={member.id}>
                                                 <UserOctagon variant="Bold" color="#346BC8" size={50} />
