@@ -46,6 +46,8 @@ export default function Signup() {
                         isAdmin: true,
                         hasGroup: false,
                         hasMembers: false,
+                        hasPaymentMade: false,
+                        groupCollectionPosition: null,
                         joinedOn: serverTimestamp(),
                         kyc: null
                     };
