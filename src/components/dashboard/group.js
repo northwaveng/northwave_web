@@ -90,7 +90,7 @@ export default function Group({ user }) {
                     <div className="alert alert-primary">
                         <div className="row">
                             <div className="col-sm-8">
-                                Click on the <b>"Start Contribution"</b> button to start contribution. Note that after starting contribution you need
+                                Click on the <b>&quot;Start Contribution&quot;</b> button to start contribution. Note that after starting contribution you need
                                 to info all the members of your group to make their first payment each by <b>online payment</b> or <b>cash</b>.
                                 In event of cash payment, you need to collect the cash physically and click <b>Payment Made</b> on the members card below.
                             </div>
@@ -106,7 +106,7 @@ export default function Group({ user }) {
                     <div className="alert alert-danger">
                         <div className="row">
                             <div className="col-sm-8">
-                                Click on the <b>"End Contribution"</b> button to end contribution. Note that by ending contribution all members will be
+                                Click on the <b>&quot;End Contribution&quot;</b> button to end contribution. Note that by ending contribution all members will be
                                 free to join other groups and this group will be deleted.
                             </div>
 
@@ -138,7 +138,7 @@ export default function Group({ user }) {
                                 </div>
 
                                 <div className="col-12 mt-3">
-                                    <h5>{capitalize(group.name ? group.name : "")}'s update</h5>
+                                    <h5>{capitalize(group.name ? group.name : "")}&apos;s update</h5>
 
                                     <form className="col-12" onSubmit={onUpdateGroup}>
                                         <div className="d-flex my-3">
