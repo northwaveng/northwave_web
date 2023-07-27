@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import Loader from '@/components/loader/loader';
 import { db } from "@/firebase/fire_config";
 import { query, collection, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
-import capitalize from '@/components/utils/capitalize'
 import toCurrency from '@/components/utils/toCurrency';
 import Navbar from '@/components/navigation/navbar/navbar';
 import { Call, DirectInbox, UserOctagon } from 'iconsax-react';
@@ -138,7 +137,7 @@ export default function Group({ user }) {
                                 </div>
 
                                 <div className="col-12 mt-3">
-                                    <h5>{capitalize(group.name ? group.name : "")}&apos;s update</h5>
+                                    <h5>{group.name}&apos;s update</h5>
 
                                     <form className="col-12" onSubmit={onUpdateGroup}>
                                         <div className="d-flex my-3">
@@ -229,7 +228,7 @@ export default function Group({ user }) {
                                             <div className="w-100 d-flex flex-row " key={member.id}>
                                                 <UserOctagon variant="Bold" color="#346BC8" size={50} />
                                                 <div className="text-start">
-                                                    {capitalize(member.firstName)} {capitalize(member.lastName)}
+                                                    {member.firstName} {member.lastName}
                                                     <br />
                                                     <small className="text-muted">{member.email}</small>
                                                     <div>
