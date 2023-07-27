@@ -9,7 +9,7 @@ export default function Home() {
                 <div className="row">
                     <div className="col-12">
                         <h1 className="text-black my-2">How we help communities save</h1>
-                        <p className="text-muted my-3">Save with your friends on weekly, monthly or Quarterly basis.</p>
+                        <p className="text-muted my-3">Save with your friends on weekly, monthly or quarterly basis.</p>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ export default function Home() {
                         <div className="rounded-4 bg_white shadow m-2 p-4">
                             <Chart className="mb-5 rounded-3 p-3" style={{ backgroundColor: "#fff7e3" }} color="#CC9933" size={80} />
 
-                            <h4>Financial</h4>
+                            <h4>Analytics</h4>
                             <p className="text-muted">Track your finances and spending.</p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ export default function Home() {
 
                     <div className="col-md-6">
                         <div className="m-2">
-                            <h1 className="text-black my-2">About Us</h1>
+                            <h1 className="text-black my-2">Why NorthWave?</h1>
 
                             <p className="text-muted my-3">
                                 Our app provides a comprehensive solution for identity verification,
@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="row mt-5">
                     <div className="col-md-6">
                         <div className="m-2">
-                            <img src="/image/market.png" alt="market" width="100%" className="rounded-4" />
+                            <img src="/image/group.png" alt="group" width="100%" className="rounded-4" />
                         </div>
                     </div>
 

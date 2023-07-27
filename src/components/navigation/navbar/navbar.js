@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '@/components/navigation/navbar/Navbar.module.css'
 import { useAuth } from '@/firebase/fire_auth_context';
-import { Logout } from 'iconsax-react';
+import { Login, Logout } from 'iconsax-react';
 import { useRouter } from 'next/router';
 
 export default function Navbar() {
@@ -39,11 +39,12 @@ export default function Navbar() {
                         </>
                         :
                         <>
-                            <Link className="btn btn-light shadow-sm mx-2 px-3 py-2" href="/auth/signin" as="/auth/signin">
-                                Sign In
+                            <Link className="btn text-white px-3 py-2" href="/auth/signin" as="/auth/signin">
+                                {/* <Login /> */}
+                                <span style={{ fontSize: "14px" }}>Sign In</span>
                             </Link>
-                            <Link className="btn text-white mx-2 px-3 py-2" href="/auth/signup" as="/auth/signup">
-                                Sign Up
+                            <Link className="btn btn-light shadow-sm px-2 py-2" href="/auth/signup" as="/auth/signup">
+                                Sign Up For Free
                             </Link>
                         </>
                     }

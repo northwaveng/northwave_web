@@ -35,8 +35,8 @@ export default function Group({ user }) {
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const data = snapshot.docs.map((doc) => {
                 if (doc.data().group === user.group) return { id: doc.id, ...doc.data() };
-                return {};
-            });
+                return null;
+            }).filter((item) => item !== null);
 
             setMembers(data);
         });
@@ -62,7 +62,7 @@ export default function Group({ user }) {
         setLoadingEndContri(false);
     };
 
-    const onPaymentMade = async (memberEmail) => {
+    const onMakePayment = async (memberEmail) => {
         const memberDoc = doc(db, "users", memberEmail);
         const memberData = { "hasPaymentMade": true };
 
@@ -222,10 +222,10 @@ export default function Group({ user }) {
                             </div>
 
                             <div className="row">
-                                {members && members.map((member, index) => (
+                                {members && members.length > 0 && members.map((member, index) => (
                                     <div key={index} className="col-sm-6">
                                         <div className="alert alert-primary p-2">
-                                            <div className="w-100 d-flex flex-row " key={member.id}>
+                                            <div className="w-100 d-flex flex-row ">
                                                 <UserOctagon variant="Bold" color="#346BC8" size={50} />
                                                 <div className="text-start">
                                                     {member.firstName} {member.lastName}
@@ -237,8 +237,6 @@ export default function Group({ user }) {
                                                         </span>
                                                     </div>
                                                 </div>
-
-
                                             </div>
 
                                             <hr />
@@ -263,8 +261,8 @@ export default function Group({ user }) {
                                                 {!member.hasPaymentMade &&
                                                     <div className="col-6">
                                                         <div>
-                                                            <button className="btn btn-sm btn-danger" onClick={() => onPaymentMade(member.email)}>
-                                                                Payment Made
+                                                            <button className="btn btn-sm btn-danger" onClick={() => onMakePayment(member.email)}>
+                                                                Make Payment
                                                             </button>
                                                         </div>
                                                     </div>
