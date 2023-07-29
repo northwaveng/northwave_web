@@ -4,7 +4,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
 import { toast } from 'react-toastify';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
   try {
     // Get the payment reference from the query parameters
     const { reference } = req.query;
