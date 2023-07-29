@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 import { doc, updateDoc } from 'firebase/firestore';
-import { db } from '@/firebase/fire_config';
+import { db } from '../../../src/firebase/fire_config';
 import { toast } from 'react-toastify';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
