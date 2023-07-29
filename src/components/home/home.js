@@ -1,5 +1,5 @@
 // import styles from '@/components/home/Home.module.css'
-import { Chart, Money, Wallet } from 'iconsax-react'
+import { ArrowDown2, Chart, Money, Wallet } from 'iconsax-react'
 
 export default function Home() {
 
@@ -117,8 +117,15 @@ export default function Home() {
                             <h1 className="text-black my-2">FAQs</h1>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
-                                    Why is NorthWave better to any offline contributions?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Why is NorthWave better than any offline contributions?
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq1">
@@ -134,8 +141,15 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
-                                    Is NorthWave legal?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Is NorthWave legal?
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq2">
@@ -145,8 +159,15 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
-                                    Why should I trust other users will pay their contributions?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            Why should I trust other users will pay their contributions?
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq3">
@@ -157,8 +178,16 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
-                                    What are payment methods?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
+
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            What are payment methods?
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq4">
@@ -167,9 +196,16 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
-                                    What are withdrawal options?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            What are withdrawal options?
 
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq5">
@@ -178,8 +214,15 @@ export default function Home() {
                             </div>
 
                             <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100 text-start" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
-                                    What are the groups circles?
+                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            What are the groups circles?
+                                        </div>
+                                        <div>
+                                            <ArrowDown2 className="primary" />
+                                        </div>
+                                    </div>
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq6">
@@ -190,7 +233,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

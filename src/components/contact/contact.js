@@ -36,19 +36,19 @@ export default function Contact() {
 
     return (
         <>
-            <div className="container my-5">
-                <div className="row mb-5">
+            <div className="container mb-5">
+                <div className="row mb-3">
                     <h3 className="text-center primary">Contact Us</h3>
                 </div>
 
                 <div className="row">
                     <div className="col-sm-6">
-                        <form className="card py-4 px-3 m-2 shadow" onSubmit={onSendMessage}>
+                        <form className="card py-2 px-2 m-2 shadow" onSubmit={onSendMessage}>
                             <h5 className="pb-3 border-bottom">Send a message</h5>
 
                             <div className="d-flex mt-4">
                                 <div className="col-sm-6">
-                                    <div className="form-floating mx-2">
+                                    <div className="form-floating mx-1">
                                         <input
                                             type="text"
                                             required
@@ -62,7 +62,7 @@ export default function Contact() {
                                 </div>
 
                                 <div className="col-sm-6">
-                                    <div className="form-floating mx-3">
+                                    <div className="form-floating mx-1">
                                         <input
                                             type="email"
                                             required
@@ -96,15 +96,15 @@ export default function Contact() {
                             }
                         </form>
                     </div>
-                    <div className="col-sm-6">
+                    <div className="col-sm-6 mt-3">
                         <div className="row">
                             <div className="col-sm-6">
-                                <Link className="text-decoration-none secondary card m-3 p-2 bg_primary_50"
+                                <Link className="text-decoration-none secondary card shadow-sm m-2 p-2"
                                     href="tel:+2347033180897"
                                     as="tel:+2347033180897"
                                     target="_blank"
                                 >
-                                    <Call className="mx-1" size="32" variant="Bold" />
+                                    <Call className="mx-1" size="18" />
                                     <div className="d-flex flex-column mx-1">
                                         call us
                                         <br />
@@ -113,22 +113,22 @@ export default function Contact() {
                                 </Link>
                             </div>
                             <div className="col-sm-6">
-                                <Link className="text-decoration-none secondary card card m-3 p-2 bg_primary_50"
+                                <Link className="text-decoration-none secondary card shadow-sm m-2 p-2"
                                     href="mailto:northwave.ng@gmail.com"
                                     as="mailto:northwave.ng@gmail.com"
                                     target="_blank"
                                 >
-                                    <DirectSend className="mx-1" size="32" variant="Bold" />
+                                    <DirectSend className="mx-1" size="18" />
                                     <div className="d-flex flex-column mx-1">
-                                        email use
+                                        email us
                                         <br />
                                         northwave.ng@gmail.com
                                     </div>
                                 </Link>
                             </div>
                             <div className="col-sm-6">
-                                <div className="secondary card card m-3 p-2 bg_primary_50">
-                                    <Location className="mx-1" size="32" variant="Bold" />
+                                <div className="secondary card shadow-sm m-2 p-2">
+                                    <Location className="mx-1" size="18" />
                                     <div className="d-flex flex-column mx-1">
                                         visit us
                                         <br />
@@ -137,12 +137,12 @@ export default function Contact() {
                                 </div>
                             </div>
                             <div className="col-sm-6">
-                                <Link className="text-decoration-none secondary card card m-3 p-2 bg_primary_50"
+                                <Link className="text-decoration-none secondary card shadow-sm m-2 p-2"
                                     href="https://www.linkedin.com/company/smartrrproject/"
                                     as="https://www.linkedin.com/company/smartrrproject/"
                                     target="_blank"
                                 >
-                                    <DirectSend className="mx-1" size="32" variant="Bold" />
+                                    <DirectSend className="mx-1" size="18" />
                                     <div className="d-flex flex-column mx-1">
                                         follow us
                                         <br />
