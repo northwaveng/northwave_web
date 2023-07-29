@@ -20,43 +20,51 @@ export default function Dashboard({ user }) {
         setLoading(true);
         toast.info("Creating group...");
 
-        const id = v4();
+        if (parseInt(contribution) < 5000) {
+            toast.error("Contribution amount must be 5000 Naira above.");
+            setLoading(false);
+        } else if (parseInt(target) <= parseInt(contribution)) {
+            toast.error("Target amount must be above contribution amount.");
+            setLoading(false);
+        } else {
+            const id = v4();
 
-        const collRef = collection(db, "groups");
-        const groupDoc = {
-            id: id,
-            name: name.toLowerCase(),
-            contribution: contribution,
-            target: target,
-            mandate: mandate.toLowerCase(),
-            paystack: "",
-            active: false,
-            admin: user.email,
-            members: [],
-            createdOn: serverTimestamp(),
-        };
+            const collRef = collection(db, "groups");
+            const groupDoc = {
+                id: id,
+                name: name.toLowerCase(),
+                contribution: contribution,
+                target: target,
+                mandate: mandate.toLowerCase(),
+                paystack: "",
+                active: false,
+                admin: user.email,
+                members: [],
+                createdOn: serverTimestamp(),
+            };
 
-        setDoc(doc(collRef, id), groupDoc)
-            .then(async () => {
-                setLoading(false);
-                toast.info("Updating status...");
+            setDoc(doc(collRef, id), groupDoc)
+                .then(async () => {
+                    setLoading(false);
+                    toast.info("Updating status...");
 
-                // user doc
-                const userDoc = doc(db, "users", user.email);
+                    // user doc
+                    const userDoc = doc(db, "users", user.email);
 
-                // Data to update
-                const userData = { "group": id, "hasGroup": true };
+                    // Data to update
+                    const userData = { "group": id, "hasGroup": true };
 
-                await updateDoc(userDoc, userData).then(() => {
-                    toast.success("Group created.");
-                }).catch((error) => {
-                    toast.error(`Something is wrong: ${error.message}`);
+                    await updateDoc(userDoc, userData).then(() => {
+                        toast.success("Group created.");
+                    }).catch((error) => {
+                        toast.error(`Something is wrong: ${error.message}`);
+                    });
+                })
+                .catch((error) => {
+                    setLoading(false);
+                    toast.error(`Error while creating group.: ${error.message}`);
                 });
-            })
-            .catch((error) => {
-                setLoading(false);
-                toast.error(`Error while creating group.: ${error.message}`);
-            });
+        }
     };
 
     if (user.hasGroup && !user.hasMembers) return <AddMember user={user} />;

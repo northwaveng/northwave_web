@@ -5,8 +5,9 @@ import { db } from "@/firebase/fire_config";
 import { query, collection, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import toCurrency from '@/components/utils/toCurrency';
 import Navbar from '@/components/navigation/navbar/navbar';
-import { Call, DirectInbox, UserOctagon } from 'iconsax-react';
+import { Bank, Call, DirectInbox, UserOctagon, Warning2 } from 'iconsax-react';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function Group({ user }) {
     const [loadingStartContri, setLoadingStartContri] = useState(false);
@@ -46,15 +47,42 @@ export default function Group({ user }) {
 
     const onUpdateGroup = event => {
         event.preventDefault();
-
         toast.info("Currently, change of group information is not available.");
     };
 
-    const onStartContribution = () => {
-        setLoadingStartContri(true);
-        toast.info("Starting contribution...");
-        setLoadingStartContri(false);
-    };
+    const onStartContribution = async () => {
+        try {
+            setLoadingStartContri(true);
+            toast.info("Starting contribution...");
+
+            const contribution = parseInt(group.contribution);
+            const amount = (contribution + (contribution * 0.05)) * 100
+
+            const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
+            const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}/plan`;
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+
+            const response = await axios.post(url, params, { headers });
+
+            if (response.status === 200 || response.status === 201) {
+                let data = response.data;
+
+                // group
+                const groupDoc = doc(db, "groups", user.group);
+                const groupData = { "active": true, "paystack": data["data"]["plan_code"] };
+
+                await updateDoc(groupDoc, groupData).then(async () => {
+                    toast.info(data["message"]);
+                }).catch((error) => {
+                    toast.error(`Something is wrong: ${error.message}`);
+                });
+            }
+        } catch (error) {
+            toast.error(`Something went wrong: ${error}`);
+        } finally {
+            setLoadingStartContri(false);
+        }
+    }
 
     const onEndContribution = () => {
         setLoadingEndContri(true);
@@ -63,15 +91,42 @@ export default function Group({ user }) {
     };
 
     const onMakePayment = async (memberEmail) => {
-        const memberDoc = doc(db, "users", memberEmail);
-        const memberData = { "hasPaymentMade": true };
+        try {
+            setLoadingStartContri(true);
+            toast.info("redirecting...");
 
-        await updateDoc(memberDoc, memberData).then(() => {
-            toast.success("Updated.");
-        }).catch((error) => {
-            setLoading(false);
-            toast.error(`Something is wrong: ${error.message}`);
-        });
+            const contribution = parseInt(group.contribution);
+            const amount = (contribution + (contribution * 0.05)) * 100;
+
+            const params = JSON.stringify({ "email": memberEmail, "plan": group.paystack, "amount": amount });
+            const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}/transaction/initialize`;
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+
+            const response = await axios.post(url, params, { headers });
+
+            if (response.status === 200 || response.status === 201) {
+                let data = response.data;
+                const authorizationUrl = data["data"]["authorization_url"];
+
+                // Open the authorization_url in a new tab
+                window.open(authorizationUrl, "_blank");
+
+                // // member
+                // const memberDoc = doc(db, "users", memberEmail);
+                // const memberData = { "hasMadePayment": true };
+
+                // await updateDoc(memberDoc, memberData).then(() => {
+                //     toast.success("Payment Made.");
+                // }).catch((error) => {
+                //     setLoading(false);
+                //     toast.error(`Something is wrong: ${error.message}`);
+                // });
+            }
+        } catch (error) {
+            toast.error(`Something went wrong: ${error}`);
+        } finally {
+            setLoadingStartContri(false);
+        }
     }
 
     if (group === null) {
@@ -84,8 +139,7 @@ export default function Group({ user }) {
                 <Navbar />
                 <div style={{ marginTop: "6rem" }} />
 
-                {!group.active
-                    ?
+                {!group.active &&
                     <div className="alert alert-primary">
                         <div className="row">
                             <div className="col-sm-8">
@@ -101,23 +155,7 @@ export default function Group({ user }) {
                             </div>
                         </div>
                     </div>
-                    :
-                    <div className="alert alert-danger">
-                        <div className="row">
-                            <div className="col-sm-8">
-                                Click on the <b>&quot;End Contribution&quot;</b> button to end contribution. Note that by ending contribution all members will be
-                                free to join other groups and this group will be deleted.
-                            </div>
-
-                            <div className="col-sm-4 text-end">
-                                <button onClick={onEndContribution} className="btn btn-lg btn-danger m-2 mb-0">
-                                    {loadingEndContri ? <Loader /> : "End Contribution"}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 }
-
 
                 <div className="row my-5">
                     <div className="col-sm-6">
@@ -242,29 +280,29 @@ export default function Group({ user }) {
                                             <hr />
 
                                             <div className="row ">
-                                                <div className="col-3">
-                                                    <div>
-                                                        <Link className="btn btn-sm bg_primary text-white" href={`tell:${member.phoneNumber}`}>
-                                                            <Call size={18} />
-                                                        </Link>
-                                                    </div>
+                                                <div className="col-2">
+                                                    <Link className="btn btn-sm bg_primary text-white" href={`tell:${member.phoneNumber}`}>
+                                                        <Call size={18} />
+                                                    </Link>
                                                 </div>
 
-                                                <div className="col-3">
-                                                    <div>
-                                                        <Link className="btn btn-sm bg_primary text-white" href={`mailto:${member.email}`}>
-                                                            <DirectInbox size={18} />
-                                                        </Link>
-                                                    </div>
+                                                <div className="col-2">
+                                                    <Link className="btn btn-sm bg_primary text-white" href={`mailto:${member.email}`}>
+                                                        <DirectInbox size={18} />
+                                                    </Link>
                                                 </div>
 
-                                                {!member.hasPaymentMade &&
+                                                <div className="col-2">
+                                                    <button className="btn btn-sm btn-danger">
+                                                        <Warning2 size={18} />
+                                                    </button>
+                                                </div>
+
+                                                {!member.hasMadePayment && group.paystack.length > 0 &&
                                                     <div className="col-6">
-                                                        <div>
-                                                            <button className="btn btn-sm btn-danger" onClick={() => onMakePayment(member.email)}>
-                                                                Make Payment
-                                                            </button>
-                                                        </div>
+                                                        <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
+                                                            <Bank size={18} /> Pay Now
+                                                        </button>
                                                     </div>
                                                 }
 
@@ -273,10 +311,26 @@ export default function Group({ user }) {
                                     </div>
                                 ))}
                             </div>
-
                         </div>
                     </div>
                 </div>
+
+                {group.active &&
+                    <div className="alert alert-danger">
+                        <div className="row">
+                            <div className="col-sm-8">
+                                Click on the <b>&quot;End Contribution&quot;</b> button to end contribution. Note that by ending contribution all members will be
+                                free to join other groups and this group will be deleted.
+                            </div>
+
+                            <div className="col-sm-4 text-end">
+                                <button onClick={onEndContribution} className="btn btn-lg btn-danger m-2 mb-0">
+                                    {loadingEndContri ? <Loader /> : "End Contribution"}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

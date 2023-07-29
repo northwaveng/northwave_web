@@ -56,7 +56,7 @@ export default function AddMember({ user }) {
                     const memberData = {
                         "group": user.group,
                         "groupCollectionPosition": index,
-                        "hasPaymentMade": false
+                        "hasMadePayment": false
                     };
 
                     await updateDoc(memberDoc, memberData).then(() => {
