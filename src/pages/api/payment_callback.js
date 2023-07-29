@@ -2,9 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
-import { toast } from 'react-toastify';
 
-export default async function handler({req, res}) {
+export default async function handler(req, res) {
   try {
     // Get the payment reference from the query parameters
     const { reference } = req.query;
@@ -22,20 +21,21 @@ export default async function handler({req, res}) {
     const paymentData = response.data.data;
 
     if (paymentData.status === 'success') {
-      toast.error("Payment successful");
+      res.status(200).json({ status: 'success', message: req.query });
+
       // // member
       // const memberDoc = doc(db, "users", "lovethife@gmail.com");
       // const memberData = { "hasMadePayment": true };
 
       // await updateDoc(memberDoc, memberData).then(() => {
-      //   toast.success("Payment Made.");
+      //   res.status(200).json({ status: 'success', message: 'Payment successful' });
       // }).catch((error) => {
-      //   toast.error(`Something is wrong: ${error.message}`);
+      //   res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
       // });
     } else {
-      toast.error("Payment not successful");
+      res.status(200).json({ status: 'error', message: 'Payment not successful' });
     }
   } catch (error) {
-    toast.error('Error processing payment callback:', error);
+    res.status(500).json({ status: 'error', message: 'An error occurred' });
   }
 }
