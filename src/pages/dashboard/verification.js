@@ -11,7 +11,7 @@ import Loader from '@/components/loader/loader';
 import { toast } from 'react-toastify';
 
 export default function VerificationPage() {
-    const { authUser } = useAuth();
+    const { loading, authUser } = useAuth();
     const [isAdmin, setIsAdmin] = useState(null);
     const [hasVerified, setHasVerified] = useState(null);
 
