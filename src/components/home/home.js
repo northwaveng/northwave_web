@@ -266,7 +266,7 @@ export default function Home() {
                                 <p className="collapse text-muted my-2" id="faq7">
                                     As the circle leader, you have the ability to invite and approve requests
                                     to join your contribution circle. You can send reminders to your circle members once
-                                    it's contribution week. You can create as many contribution circles as you want - with
+                                    it&apos;s contribution week. You can create as many contribution circles as you want - with
                                     unique names.
                                 </p>
                             </div>
@@ -275,7 +275,7 @@ export default function Home() {
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            Can other users I don't know join my contributions circle?
+                                            Can other users I don&apos;t know join my contributions circle?
                                         </div>
                                         <div>
                                             <ArrowDown2 className="primary" />
@@ -419,7 +419,7 @@ export default function Home() {
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            How secure is NorthWave's verification process?
+                                            How secure is NorthWave&apos;s verification process?
                                         </div>
                                         <div>
                                             <ArrowDown2 className="primary" />
@@ -428,7 +428,7 @@ export default function Home() {
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq7">
-                                    At NorthWave, we prioritize the security and privacy of our users' data. Our app employs a
+                                    At NorthWave, we prioritize the security and privacy of our users&apos; data. Our app employs a
                                     comprehensive solution for identity verification, bank verification, and card verification,
                                     all backed by top-notch security measures. We use end-to-end encryption throughout the
                                     entire verification process to safeguard sensitive user data, making it inaccessible to
