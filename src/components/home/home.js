@@ -322,12 +322,12 @@ export default function Home() {
                                 </a>
 
                                 <p className="collapse text-muted my-2" id="faq7">
-                                    All the payments are automated. You can select either "Online Payment"
+                                    All the payments are automated. You can select either &quot;Online Payment&quot;
                                     (which will be deducted automatically through your debit card or bank transfer)
-                                    or "Cash Payment"(which will be paid in cash to the circle leader). Once you
-                                    select either "Online Payment" or "Cash Payment," this method will be locked in
+                                    or &quot;Cash Payment&quot;(which will be paid in cash to the circle leader). Once you
+                                    select either &quot;Online Payment&quot; or &quot;Cash Payment,&quot; this method will be locked in
                                     as the only available payment option for all your contributions in the circle.
-                                    If you opt for "Cash Payment," you are responsible for ensuring timely payment
+                                    If you opt for &quot;Cash Payment,&quot; you are responsible for ensuring timely payment
                                     to the circle leader within the contribution week.
                                 </p>
                             </div>
