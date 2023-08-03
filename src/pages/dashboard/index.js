@@ -11,7 +11,7 @@ import Loader from '@/components/loader/loader';
 import { toast } from 'react-toastify';
 
 export default function DashboardPage() {
-    const { authUser } = useAuth();
+    const { loading, authUser } = useAuth();
     const [user, setUser] = useState(null);
     const [isAdmin, setIsAdmin] = useState(null);
     const [hasVerified, setHasVerified] = useState(null);
@@ -89,9 +89,9 @@ export default function DashboardPage() {
         }
     }, [authUser]);
 
-    if (!authUser) return <NeedAuth fullHeight={true} />
+    if (!authUser && !loading) return <NeedAuth fullHeight={true} />
 
-    if (isAdmin === null) return <Loader fullHeight={true} />
+    if (!authUser && loading || isAdmin === null) return <Loader fullHeight={true} />
 
     if (!isAdmin || !hasVerified) return <NeedAccess fullHeight={true} />
 

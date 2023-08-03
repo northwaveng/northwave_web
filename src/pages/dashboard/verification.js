@@ -87,9 +87,9 @@ export default function VerificationPage() {
         }
     }, [authUser]);
 
-    if (!authUser) return <NeedAuth fullHeight={true} />
+    if (!authUser && !loading) return <NeedAuth fullHeight={true} />
 
-    if (isAdmin === null) return <Loader fullHeight={true} />
+    if (!authUser && loading || isAdmin === null) return <Loader fullHeight={true} />
 
     if (!isAdmin || hasVerified) return <NeedAccess fullHeight={true} />
 

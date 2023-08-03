@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Call, Camera, DirectSend, Location } from "iconsax-react";
+import { Call, Camera, DirectSend, Facebook, Instagram, LinkCircle, Location } from "iconsax-react";
 
 export default function Footer() {
     return (
-        <footer className="bg_primary py-5">
+        <footer className="bg_primary pt-5">
             <div className="container">
                 <div className="row">
                     <div className="col-sm-8 text-white">
@@ -53,25 +53,44 @@ export default function Footer() {
                                 </span>
                             </div>
                         </div>
-                        <div className="d-flex my-3">
-                            <Camera className="mx-1" size="32" variant="Bold" />
-                            <div className="d-flex flex-column mx-1">
-                                follow us
+
+                        <div className="row">
+                            <div className="col-4 my-3">
                                 <Link className="text-decoration-none text-white"
-                                    href="https://www.linkedin.com/company/smartrrproject/"
-                                    as="https://www.linkedin.com/company/smartrrproject/"
+                                    href="https://www.linkedin.com/in/northwaveng/"
                                     target="_blank"
                                 >
-                                    linkedin
+                                    <LinkCircle className="mx-1" size="32" variant="Bold" />
+
+                                    LinkedIn
+                                </Link>
+                            </div>
+                            <div className="col-4 my-3">
+                                <Link className="text-decoration-none text-white"
+                                    href="https://www.facebook.com/northwaveng"
+                                    target="_blank"
+                                >
+                                    <Facebook className="mx-1" size="32" variant="Bold" />
+
+                                    Facebook
+                                </Link>
+                            </div>
+                            <div className="col-4 my-3">
+                                <Link className="text-decoration-none text-white"
+                                    href="https://www.instagram.com/northwaveng/"
+                                    target="_blank"
+                                >
+                                    <Instagram className="mx-1" size="32" variant="Bold" />
+                                    Instagram
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="row mt-5">
+                <div className="row py-3">
                     <div className="col text-center">
-                        <Link className="text-muted text-decoration-none" href="/" as="/">
+                        <Link className="text-light text-decoration-none" href="/" as="/">
                             All rights reserved © www.northwaveng.com
                         </Link>
                     </div>

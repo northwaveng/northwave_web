@@ -43,7 +43,7 @@ export default function Navbar() {
                                 {/* <Login /> */}
                                 <span style={{ fontSize: "14px" }}>Sign In</span>
                             </Link>
-                            <Link className="btn btn-light shadow-sm px-2 py-2" href="/auth/signup" as="/auth/signup">
+                            <Link style={{ fontSize: "14px" }} className="btn btn-light shadow-sm px-2 py-2" href="/auth/signup" as="/auth/signup">
                                 Sign Up For Free
                             </Link>
                         </>

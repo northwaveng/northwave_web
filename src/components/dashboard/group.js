@@ -98,7 +98,7 @@ export default function Group({ user }) {
             const contribution = parseInt(group.contribution);
             const amount = (contribution + (contribution * 0.05)) * 100;
 
-            const params = JSON.stringify({ "email": memberEmail, "plan": group.paystack, "amount": amount });
+            const params = JSON.stringify({ "email": memberEmail, "plan": group.paystack, "amount": amount, "callback_url": `http://localhost:3000/api/payment_callback?email=${memberEmail}` });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}/transaction/initialize`;
             const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
@@ -108,19 +108,7 @@ export default function Group({ user }) {
                 let data = response.data;
                 const authorizationUrl = data["data"]["authorization_url"];
 
-                // Open the authorization_url in a new tab
-                window.open(authorizationUrl, "_blank");
-
-                // // member
-                // const memberDoc = doc(db, "users", memberEmail);
-                // const memberData = { "hasMadePayment": true };
-
-                // await updateDoc(memberDoc, memberData).then(() => {
-                //     toast.success("Payment Made.");
-                // }).catch((error) => {
-                //     setLoading(false);
-                //     toast.error(`Something is wrong: ${error.message}`);
-                // });
+                window.open(authorizationUrl, "_self");
             }
         } catch (error) {
             toast.error(`Something went wrong: ${error}`);
@@ -271,7 +259,7 @@ export default function Group({ user }) {
                                                     <small className="text-muted">{member.email}</small>
                                                     <div>
                                                         collection position: <span className="px-2 py-0 mx-2 white rounded bg-primary">
-                                                            {member.groupCollectionPosition + 1}
+                                                            {member.groupCollectionPosition}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -292,18 +280,20 @@ export default function Group({ user }) {
                                                     </Link>
                                                 </div>
 
-                                                <div className="col-2">
-                                                    <button className="btn btn-sm btn-danger">
-                                                        <Warning2 size={18} />
-                                                    </button>
-                                                </div>
-
                                                 {!member.hasMadePayment && group.paystack.length > 0 &&
-                                                    <div className="col-6">
-                                                        <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
-                                                            <Bank size={18} /> Pay Now
-                                                        </button>
-                                                    </div>
+                                                    <>
+                                                        <div className="col-2">
+                                                            <button className="btn btn-sm btn-danger">
+                                                                <Warning2 size={18} />
+                                                            </button>
+                                                        </div>
+
+                                                        <div className="col-6">
+                                                            <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
+                                                                <Bank size={18} /> Pay Now
+                                                            </button>
+                                                        </div>
+                                                    </>
                                                 }
 
                                             </div>
