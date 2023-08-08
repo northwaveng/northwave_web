@@ -23,11 +23,11 @@ export default async function handler(req, res) {
     if (paymentData.status === 'success') {
       // member
       const memberDoc = doc(db, "users", email);
-      const memberData = { "hasMadePayment": true };
+      const memberData = { "group.payment.askAdminToPay": false, "group.payment.hasPaid": true, };
 
       await updateDoc(memberDoc, memberData).then(() => {
         // res.status(200).json({ status: 'success', message: 'Payment successful' });
-        res.setHeader('Location', 'http://localhost:3000/dashboard');
+        res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}dashboard`);
         res.status(302).end();
       }).catch((error) => {
         res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });

@@ -1,4 +1,3 @@
-// import styles from '@/components/home/Home.module.css'
 import { ArrowDown2, Chart, Money, Wallet } from 'iconsax-react'
 import Link from 'next/link'
 
@@ -121,7 +120,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             What does NorthWave do?
                                         </div>
@@ -141,7 +140,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How does NorthWave help me save?
                                         </div>
@@ -160,7 +159,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Is NorthWave a registered financial institution?
                                         </div>
@@ -180,7 +179,7 @@ export default function Home() {
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
 
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Why is NorthWave better than any offline contributions?
                                         </div>
@@ -209,7 +208,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How much can I contribute with NorthWave?
                                         </div>
@@ -227,7 +226,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How does a contribution circle on NorthWave work?
                                         </div>
@@ -253,7 +252,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             As the circle leader, what are my responsibilities?
                                         </div>
@@ -273,7 +272,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Can other users I don&apos;t know join my contributions circle?
                                         </div>
@@ -291,7 +290,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Why should I trust that other users will pay their contributions if I do not know them?
                                         </div>
@@ -311,7 +310,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             What are the payment methods?
                                         </div>
@@ -334,7 +333,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Can I earn with NorthWave?
                                         </div>
@@ -353,7 +352,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How can I start a contribution circle today?
                                         </div>
@@ -375,7 +374,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How much do you charge?
                                         </div>
@@ -397,7 +396,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Is my money and personal information safe with NorthWave?
                                         </div>
@@ -417,7 +416,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How secure is NorthWave&apos;s verification process?
                                         </div>
@@ -438,7 +437,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Why do you need my BVN?
                                         </div>
@@ -457,7 +456,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             Does NorthWave offer loans?
                                         </div>
@@ -476,7 +475,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             How can I track my finances and spending with NorthWave?
                                         </div>
@@ -495,7 +494,7 @@ export default function Home() {
 
                             <div>
                                 <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div class="d-flex justify-content-between">
+                                    <div className="d-flex justify-content-between">
                                         <div>
                                             What should I do if I need help?
                                         </div>
