@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast } from "react-toastify";
 import Loader from '@/components/loader/loader';
 import { db } from "@/firebase/fire_config";
-import { query, collection, orderBy, onSnapshot, doc, updateDoc } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, doc, updateDoc, where, getDocs } from "firebase/firestore";
 import toCurrency from '@/components/utils/toCurrency';
 import Navbar from '@/components/navigation/navbar/navbar';
 import { Bank, Call, DirectInbox, UserOctagon, Warning2 } from 'iconsax-react';
@@ -11,8 +11,29 @@ import axios from 'axios';
 
 export default function Group({ user }) {
     const [loadingStartContri, setLoadingStartContri] = useState(false);
+    const [totalContributions, setTotalContributions] = useState(0);
     const [group, setGroup] = useState(null);
     const [members, setMembers] = useState([]);
+
+    // listening to total contributions
+    useEffect(() => {
+        const fetchTotalContributions = async () => {
+            try {
+                const contributionsRef = collection(db, 'contributions');
+                const q = query(contributionsRef, where('groupId', '==', user.group.id));
+                const querySnapshot = await getDocs(q);
+
+                let totalAmount = 0;
+                querySnapshot.forEach((doc) => { const data = doc.data(); totalAmount += data.amount; });
+
+                setTotalContributions(totalAmount / 100);
+            } catch (error) {
+                console.error('Error fetching contributions:', error);
+            }
+        };
+
+        fetchTotalContributions();
+    }, [user.group.id]);
 
     // listening to group
     useEffect(() => {
@@ -150,7 +171,7 @@ export default function Group({ user }) {
                                 <div className="col-sm-6">
                                     <div className="alert alert-primary shadow">
                                         <h4>Total Contribution</h4>
-                                        <h6>{toCurrency("0")}</h6>
+                                        <h6>{toCurrency(totalContributions)}</h6>
                                     </div>
                                 </div>
                                 <div className="col-sm-6">
