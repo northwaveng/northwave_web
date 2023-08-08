@@ -76,7 +76,7 @@ export default function VerificationPage() {
             const unsubscribe = onSnapshot(userRef, (snapshot) => {
                 if (snapshot.exists()) {
                     const data = snapshot.data();
-                    setIsAdmin(data.isAdmin);
+                    setIsAdmin(data.group.admin.isAdmin);
                     setHasVerified(data.kyc != null);
                 } else {
                     toast.error("User data not found");
