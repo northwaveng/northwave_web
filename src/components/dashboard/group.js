@@ -91,7 +91,12 @@ export default function Group({ user }) {
             const contribution = parseInt(group.contribution);
             const amount = (contribution + (contribution * 0.05)) * 100;
 
-            const params = JSON.stringify({ "email": memberEmail, "plan": group.paystack, "amount": amount, "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}` });
+            const params = JSON.stringify({
+                "email": memberEmail,
+                "amount": amount,
+                "plan": group.paystack,
+                "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}`
+            });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
             const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
