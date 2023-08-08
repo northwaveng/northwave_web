@@ -92,7 +92,7 @@ export default function Group({ user }) {
                 const groupData = { "active": true, "paystack": data["data"]["plan_code"] };
 
                 await updateDoc(groupDoc, groupData).then(async () => {
-                    toast.info(data["message"]);
+                    toast.success("Contribution has started.");
                 }).catch((error) => {
                     toast.error(`Something is wrong: ${error.message}`);
                 });
