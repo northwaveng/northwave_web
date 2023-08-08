@@ -97,7 +97,7 @@ export default function AddMember({ user }) {
                             </small>
 
                             {users && users.length > 0 ? users.map((user) => (
-                                !user.group > 0 && user.kyc != null &&
+                                !user.group.id > 0 && user.kyc != null &&
                                 <button
                                     onClick={() => onSelected(user.email)}
                                     className={`d-flex flex-row alert ${selectedList.includes(user.email) && "alert-primary"} p-1 my-1`}
