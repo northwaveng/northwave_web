@@ -78,27 +78,25 @@ export default function Group({ user }) {
             const charge = northwaveCharge + paystackCharge;
             const amount = (contribution + charge) * 100
 
-            console.log(amount);
+            const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
+            const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}plan`;
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
-            // const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
-            // const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}plan`;
-            // const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            const response = await axios.post(url, params, { headers });
 
-            // const response = await axios.post(url, params, { headers });
+            if (response.status === 200 || response.status === 201) {
+                let data = response.data;
 
-            // if (response.status === 200 || response.status === 201) {
-            //     let data = response.data;
+                // group
+                const groupDoc = doc(db, "groups", user.group.id);
+                const groupData = { "active": true, "paystack": data["data"]["plan_code"] };
 
-            //     // group
-            //     const groupDoc = doc(db, "groups", user.group);
-            //     const groupData = { "active": true, "paystack": data["data"]["plan_code"] };
-
-            //     await updateDoc(groupDoc, groupData).then(async () => {
-            //         toast.info(data["message"]);
-            //     }).catch((error) => {
-            //         toast.error(`Something is wrong: ${error.message}`);
-            //     });
-            // }
+                await updateDoc(groupDoc, groupData).then(async () => {
+                    toast.info(data["message"]);
+                }).catch((error) => {
+                    toast.error(`Something is wrong: ${error.message}`);
+                });
+            }
         } catch (error) {
             toast.error(`Something went wrong: ${error}`);
         } finally {
