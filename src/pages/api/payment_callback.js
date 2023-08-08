@@ -26,8 +26,7 @@ export default async function handler(req, res) {
       const memberData = { "group.payment.askAdminToPay": false, "group.payment.hasPaid": true, };
 
       await updateDoc(memberDoc, memberData).then(() => {
-        // res.status(200).json({ status: 'success', message: 'Payment successful' });
-        res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}dashboard`);
+        res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
         res.status(302).end();
       }).catch((error) => {
         res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
