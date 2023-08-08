@@ -24,7 +24,9 @@ export default function Group({ user }) {
             let totalAmount = 0;
             querySnapshot.forEach((doc) => { const data = doc.data(); totalAmount += data.amount; });
 
-            setTotalContributions(totalAmount / 100);
+            const northwaveCharge = (totalAmount * 0.005); // 0.5 percent
+            let withoutCharge = totalAmount - northwaveCharge; // remove northwave charge
+            setTotalContributions(withoutCharge / 100);
         });
 
         return () => { unsubscribe() };
