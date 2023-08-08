@@ -17,22 +17,17 @@ export default function Group({ user }) {
 
     // listening to total contributions
     useEffect(() => {
-        const fetchTotalContributions = async () => {
-            try {
-                const contributionsRef = collection(db, 'contributions');
-                const q = query(contributionsRef, where('groupId', '==', user.group.id));
-                const querySnapshot = await getDocs(q);
+        const contributionsRef = collection(db, 'contributions');
+        const q = query(contributionsRef, where('groupId', '==', user.group.id));
 
-                let totalAmount = 0;
-                querySnapshot.forEach((doc) => { const data = doc.data(); totalAmount += data.amount; });
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let totalAmount = 0;
+            querySnapshot.forEach((doc) => { const data = doc.data(); totalAmount += data.amount; });
 
-                setTotalContributions(totalAmount / 100);
-            } catch (error) {
-                console.error('Error fetching contributions:', error);
-            }
-        };
+            setTotalContributions(totalAmount / 100);
+        });
 
-        fetchTotalContributions();
+        return () => { unsubscribe() };
     }, [user.group.id]);
 
     // listening to group
