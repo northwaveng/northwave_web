@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { doc, updateDoc, addDoc } from 'firebase/firestore';
+import { doc, updateDoc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
 
 export default async function handler(req, res) {
