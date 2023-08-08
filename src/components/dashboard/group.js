@@ -71,7 +71,12 @@ export default function Group({ user }) {
             toast.info("Starting contribution...");
 
             const contribution = parseInt(group.contribution);
-            const amount = (contribution + (contribution * 0.05)) * 100
+            const northwaveCharge = (contribution * 0.005); // 0.5 percent
+            let paystackCharge = (contribution * 0.015) + 100; // 1.5% + 100 ngn
+            if (paystackCharge >= 2000) paystackCharge = 2000; // capped at 2,000 ngn
+
+            const charge = northwaveCharge + paystackCharge;
+            const amount = (contribution + charge) * 100
 
             const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}plan`;
@@ -111,6 +116,7 @@ export default function Group({ user }) {
                 "email": memberEmail,
                 "amount": amount,
                 "plan": group.paystack,
+                "channels": ["card", "bank", "ussd"],
                 "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}`
             });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
