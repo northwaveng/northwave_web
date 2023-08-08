@@ -52,7 +52,7 @@ export default function Dashboard({ user }) {
                     const userDoc = doc(db, "users", user.email);
 
                     // Data to update
-                    const userData = { "group": id, "hasGroup": true };
+                    const userData = { "group.id": id, "group.admin.hasGroup": true };
 
                     await updateDoc(userDoc, userData).then(() => {
                         toast.success("Group created.");
