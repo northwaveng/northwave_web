@@ -78,7 +78,7 @@ export default function DashboardPage() {
                 if (snapshot.exists()) {
                     const data = snapshot.data();
                     setUser(data);
-                    setIsAdmin(data.isAdmin);
+                    setIsAdmin(data.group.admin.isAdmin);
                     setHasVerified(data.kyc != null);
                 } else {
                     toast.error("User data not found");

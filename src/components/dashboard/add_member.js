@@ -39,13 +39,13 @@ export default function AddMember({ user }) {
         toast.info("Adding members...");
 
         // group
-        const groupDoc = doc(db, "groups", user.group);
+        const groupDoc = doc(db, "groups", user.group.id);
         const groupData = { "members": [...selectedList, user.email] };
 
         await updateDoc(groupDoc, groupData).then(async () => {
             // user
             const userDoc = doc(db, "users", user.email);
-            const userData = { "hasGroup": true, "hasMembers": true };
+            const userData = { "group.admin.hasGroup": true, "group.admin.hasMembers": true };
 
             await updateDoc(userDoc, userData).then(() => {
                 toast.info("Updating members group...");
@@ -53,11 +53,7 @@ export default function AddMember({ user }) {
                 [...selectedList, user.email].forEach(async (member, index) => {
                     // member 
                     const memberDoc = doc(db, "users", member);
-                    const memberData = {
-                        "group": user.group,
-                        "groupCollectionPosition": index,
-                        "hasMadePayment": false
-                    };
+                    const memberData = { "group.id": user.group.id, "group.position": index + 1 };
 
                     await updateDoc(memberDoc, memberData).then(() => {
                         setLoading(false);

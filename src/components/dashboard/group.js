@@ -11,13 +11,12 @@ import axios from 'axios';
 
 export default function Group({ user }) {
     const [loadingStartContri, setLoadingStartContri] = useState(false);
-    const [loadingEndContri, setLoadingEndContri] = useState(false);
     const [group, setGroup] = useState(null);
     const [members, setMembers] = useState([]);
 
     // listening to group
     useEffect(() => {
-        const groupRef = doc(db, "groups", user.group);
+        const groupRef = doc(db, "groups", user.group.id);
         const unsubscribe = onSnapshot(groupRef, (snapshot) => {
             if (snapshot.exists()) {
                 const data = snapshot.data();
@@ -32,10 +31,10 @@ export default function Group({ user }) {
 
     // listening to members
     useEffect(() => {
-        const q = query(collection(db, "users"), orderBy("groupCollectionPosition"));
+        const q = query(collection(db, "users"), orderBy("group.position"));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const data = snapshot.docs.map((doc) => {
-                if (doc.data().group === user.group) return { id: doc.id, ...doc.data() };
+                if (doc.data().group.id === user.group.id) return { id: doc.id, ...doc.data() };
                 return null;
             }).filter((item) => item !== null);
 
@@ -83,12 +82,6 @@ export default function Group({ user }) {
             setLoadingStartContri(false);
         }
     }
-
-    const onEndContribution = () => {
-        setLoadingEndContri(true);
-        toast.info("Contribution can end only if all members have made collection of same amount.");
-        setLoadingEndContri(false);
-    };
 
     const onMakePayment = async (memberEmail) => {
         try {
@@ -259,7 +252,7 @@ export default function Group({ user }) {
                                                     <small className="text-muted">{member.email}</small>
                                                     <div>
                                                         collection position: <span className="px-2 py-0 mx-2 white rounded bg-primary">
-                                                            {member.groupCollectionPosition}
+                                                            {member.group.position}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -280,7 +273,7 @@ export default function Group({ user }) {
                                                     </Link>
                                                 </div>
 
-                                                {!member.hasMadePayment && group.paystack.length > 0 &&
+                                                {!member.group.payment.hasPaid && group.paystack.length > 0 &&
                                                     <>
                                                         <div className="col-2">
                                                             <button className="btn btn-sm btn-danger">
@@ -288,11 +281,13 @@ export default function Group({ user }) {
                                                             </button>
                                                         </div>
 
-                                                        <div className="col-6">
-                                                            <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
-                                                                <Bank size={18} /> Pay Now
-                                                            </button>
-                                                        </div>
+                                                        {member.group.payment.askAdminToPay &&
+                                                            <div className="col-6">
+                                                                <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
+                                                                    <Bank size={18} /> Pay Now
+                                                                </button>
+                                                            </div>
+                                                        }
                                                     </>
                                                 }
 
@@ -306,17 +301,10 @@ export default function Group({ user }) {
                 </div>
 
                 {group.active &&
-                    <div className="alert alert-danger">
-                        <div className="row">
-                            <div className="col-sm-8">
-                                Click on the <b>&quot;End Contribution&quot;</b> button to end contribution. Note that by ending contribution all members will be
-                                free to join other groups and this group will be deleted.
-                            </div>
-
-                            <div className="col-sm-4 text-end">
-                                <button onClick={onEndContribution} className="btn btn-lg btn-danger m-2 mb-0">
-                                    {loadingEndContri ? <Loader /> : "End Contribution"}
-                                </button>
+                    <div className="row justify-content-center">
+                        <div className="col-6 text-center">
+                            <div className="alert alert-primary">
+                                Group will automatically end after a completed collection circle.
                             </div>
                         </div>
                     </div>

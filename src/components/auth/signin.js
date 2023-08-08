@@ -29,7 +29,7 @@ export default function Signin() {
                 getDoc(profileRef)
                     .then((docSnapshot) => {
                         if (docSnapshot.exists()) {
-                            const isAdmin = docSnapshot.data().isAdmin;
+                            const isAdmin = docSnapshot.data().group.admin.isAdmin;
                             const hasVerified = docSnapshot.data().kyc != null;
 
                             if (isAdmin) {

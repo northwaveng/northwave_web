@@ -21,7 +21,7 @@ export default function Dashboard({ user }) {
         toast.info("Creating group...");
 
         if (parseInt(contribution) < 5000) {
-            toast.error("Contribution amount must be 5000 Naira above.");
+            toast.error("Contribution amount must be 5,000 Naira above.");
             setLoading(false);
         } else if (parseInt(target) <= parseInt(contribution)) {
             toast.error("Target amount must be above contribution amount.");
@@ -67,9 +67,9 @@ export default function Dashboard({ user }) {
         }
     };
 
-    if (user.hasGroup && !user.hasMembers) return <AddMember user={user} />;
+    if (user.group.admin.hasGroup && !user.group.admin.hasMembers) return <AddMember user={user} />;
 
-    if (user.hasGroup && user.hasMembers) return <Group user={user} />;
+    if (user.group.admin.hasGroup && user.group.admin.hasMembers) return <Group user={user} />;
 
     return (
         <div className="dashboard_content">

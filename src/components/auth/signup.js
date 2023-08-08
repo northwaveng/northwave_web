@@ -42,12 +42,19 @@ export default function Signup() {
                         firstName: firstName.toLowerCase(),
                         lastName: lastName.toLowerCase(),
                         phoneNumber: phoneNumber,
-                        group: "",
-                        isAdmin: true,
-                        hasGroup: false,
-                        hasMembers: false,
-                        hasMadePayment: false,
-                        groupCollectionPosition: null,
+                        group: {
+                            id: "",
+                            admin: {
+                                isAdmin: true,
+                                hasGroup: false,
+                                hasMembers: false,
+                            },
+                            payment: {
+                                hasPaid: false,
+                                askAdminToPay: false,
+                            },
+                            position: null,
+                        },
                         joinedOn: serverTimestamp(),
                         kyc: null
                     };
