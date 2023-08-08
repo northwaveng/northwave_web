@@ -153,7 +153,7 @@ export default function Group({ user }) {
                             <div className="col-sm-8">
                                 Click on the <b>&quot;Start Contribution&quot;</b> button to start contribution. Note that after starting contribution you need
                                 to info all the members of your group to make their first payment each by <b>online payment</b> or <b>cash</b>.
-                                In event of cash payment, you need to collect the cash physically and click <b>Payment Made</b> on the members card below.
+                                In event of cash payment, you need to collect the cash physically and click <b>Pay Now</b> on the members card below.
                             </div>
 
                             <div className="col-sm-4 text-end">
