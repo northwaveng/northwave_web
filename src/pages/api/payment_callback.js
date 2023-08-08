@@ -18,12 +18,12 @@ export default async function handler(req, res) {
     };
 
     const response = await axios.get(verifyUrl, config);
-    const paymentData = response.data.data;
+    const data = response.data.data;
 
-    if (paymentData.status === 'success') {
+    if (data.status === 'success') {
       // member
       const memberDoc = doc(db, "users", email);
-      const memberData = { "group.payment.askAdminToPay": false, "group.payment.hasPaid": true, };
+      const memberData = { "group.payment.askAdminToPay": false, "group.payment.hasPaid": true, "data": data };
 
       await updateDoc(memberDoc, memberData).then(() => {
         res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
