@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast } from "react-toastify";
 import Loader from '@/components/loader/loader';
 import { db } from "@/firebase/fire_config";
-import { query, collection, orderBy, onSnapshot, doc, updateDoc, where, getDocs } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, doc, updateDoc, where } from "firebase/firestore";
 import toCurrency from '@/components/utils/toCurrency';
 import Navbar from '@/components/navigation/navbar/navbar';
 import { Bank, Call, DirectInbox, UserOctagon, Warning2 } from 'iconsax-react';
@@ -119,7 +119,7 @@ export default function Group({ user }) {
                 "amount": amount,
                 "plan": group.paystack,
                 "channels": ["card", "bank", "ussd"],
-                "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}`
+                "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
             });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
             const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
