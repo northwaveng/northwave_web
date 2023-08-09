@@ -48,9 +48,9 @@ export default async function handler(req, res) {
               getDoc(doc(db, 'users', collector)).then((user) => {
                 const data = user.data();
                 const crypto = new Cryptograph();
-                const accountNumber = crypto.decrypt({ value: data["kyc"]["accountNumber"] });
+                const accountNumber = crypto.decrypt({ value: data.kyc.accountNumber });
 
-                res.status(200).json({ status: 'success', accountNumber: data["kyc"]["accountNumber"], accountNumber2: data.kyc.accountNumber });
+                res.status(200).json({ status: 'success', accountNumber: data.kyc.accountNumber, accountNumber2: accountNumber });
 
                 // res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
                 // res.status(302).end();
