@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { doc, updateDoc, addDoc, collection, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
+import { auth } from "@/firebase/fire_config";
 import Cryptograph from '@/components/utils/cryptograph';
 
 export default async function handler(req, res) {
