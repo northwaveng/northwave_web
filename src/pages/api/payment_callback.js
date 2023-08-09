@@ -39,8 +39,9 @@ export default async function handler(req, res) {
 
           getDoc(doc(db, 'groups', groupId)).then((snapshot) => {
             const target = parseFloat(snapshot.data().target);
+            const contributions = parseFloat(totalContributions);
 
-            if (totalContributions > target) {
+            if (contributions > target) {
               const members = snapshot.data().members;
               const collector = members[0];
 
