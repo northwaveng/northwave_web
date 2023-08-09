@@ -121,8 +121,14 @@ export default function Group({ user }) {
                 "channels": ["card", "bank", "ussd"],
                 "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
             });
+
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
-            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+
+            const headers = {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`,
+                'Content-Type': 'application/json',
+                "X-Origin-Domain": "northwaveng.com"
+            };
 
             const response = await axios.post(url, params, { headers });
 
