@@ -45,20 +45,18 @@ export default async function handler(req, res) {
               const members = snapshot.data().members;
               const collector = members[0];
 
-              res.status(200).json({ status: 'success', message: collector });
+              getDoc(doc(db, 'users', collector)).then((user) => {
+                const data = user.data();
+                const crypto = new Cryptograph();
+                const accountNumber = crypto.decrypt({ value: data.kyc.accountNumber });
 
-              //     getDoc(doc(db, 'users', collector)).then((user) => {
-              //       const data = user.data();
-              //       const crypto = new Cryptograph();
-              //       const accountNumber = crypto.decrypt({ value: data.kyc.accountNumber });
+                res.status(200).json({ status: 'success', message: accountNumber });
 
-              //       res.status(200).json({ status: 'success', message: accountNumber });
-
-              //       // res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
-              //       // res.status(302).end();
-              //     }).catch((error) => {
-              //       res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
-              //     });
+                // res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
+                // res.status(302).end();
+              }).catch((error) => {
+                res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
+              });
             } else {
               res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
               res.status(302).end();
