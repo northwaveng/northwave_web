@@ -310,7 +310,7 @@ export default function Group({ user }) {
                                                             </button>
                                                         </div>
 
-                                                        {member.group.payment.askAdminToPay &&
+                                                        {member.group.payment.askAdminToPay || member.group.admin.isAdmin &&
                                                             <div className="col-6">
                                                                 <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
                                                                     <Bank size={18} /> Pay Now
