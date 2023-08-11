@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { doc, updateDoc, addDoc, collection, getDoc, deleteDoc, getDocs, query, where } from 'firebase/firestore';
+import { doc, updateDoc, addDoc, collection, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
 import { v4 } from 'uuid';
 
@@ -82,15 +82,8 @@ export default async function handler(req, res) {
                           "group.payment.askAdminToPay": false,
                           "group.payment.hasPaid": false
                         }).then(async () => {
-                          const q = query(collection(db, "contributions"), where("groupId", "==", groupId));
-                          await getDocs(q).then((contributionsSnap) => {
-                            contributionsSnap.forEach((doc) => { deleteDoc(doc.ref); });
-
-                            res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
-                            res.status(302).end();
-                          }).catch((error) => {
-                            res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
-                          });
+                          res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
+                          res.status(302).end();
                         }).catch((error) => {
                           res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
                         });
