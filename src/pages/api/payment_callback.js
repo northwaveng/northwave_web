@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { doc, updateDoc, addDoc, collection, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
+import { v4 } from 'uuid';
 
 export default async function handler(req, res) {
   try {
@@ -44,12 +45,53 @@ export default async function handler(req, res) {
               const members = snapshot.data().members;
               const collector = members[0];
 
-              getDoc(doc(db, 'users', collector)).then((user) => {
-                const data = user.data();
-                res.status(200).json({ accountNumber: data.kyc.accountNumber });
+              getDoc(doc(db, 'users', collector)).then(async (user) => {
+                const user_ = user.data();
+                const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transfer`;
+                const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+                const reference = v4();
+                const adminCommission = target * 0.05;
+                const adminTarget = target + adminCommission
 
-                // res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
-                // res.status(302).end();
+                const params = JSON.stringify({
+                  "source": "balance",
+                  "amount": user_.group.admin.isAdmin ? adminTarget * 100 : target * 100,
+                  "reference": reference,
+                  "recipient": user_.kyc.recipientCode,
+                  "reason": "NorthWave's Contribution Collection"
+                });
+
+                try {
+                  const response = await axios.post(url, params, { headers });
+
+                  if (response.status === 200 || response.status === 201) {
+                    // move the first member to last
+                    const firstMember = members.shift();
+                    members.push(firstMember);
+
+                    // rearrange members
+                    for (let i = 0; i < members.length - 1; i++) {
+                      members[i] = members[i];
+                    }
+
+                    updateDoc(doc(db, "groups", groupId), { "members": members }).then(() => {
+
+                      members.forEach(async (member, index) => {
+                        await updateDoc(doc(db, "users", member), { "group.position": index + 1 }).then(() => {
+                          res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
+                          res.status(302).end();
+                        }).catch((error) => {
+                          res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
+                        });
+                      });
+
+                    }).catch((error) => {
+                      res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
+                    });
+                  }
+                } catch (error) {
+                  res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
+                }
               }).catch((error) => {
                 res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
               });
