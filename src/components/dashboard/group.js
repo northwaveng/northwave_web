@@ -328,16 +328,6 @@ export default function Group({ user }) {
                         </div>
                     </div>
                 </div>
-
-                {group.active &&
-                    <div className="row justify-content-center">
-                        <div className="col-6 text-center">
-                            <div className="alert alert-primary">
-                                Group will automatically end after a completed collection circle.
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
     );
