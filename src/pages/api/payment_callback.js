@@ -79,8 +79,8 @@ export default async function handler(req, res) {
                       members.forEach(async (member, index) => {
                         await updateDoc(doc(db, "users", member), {
                           "group.position": index + 1,
-                          "payment.askAdminToPay": false,
-                          "payment.hasPaid": false
+                          "group.payment.askAdminToPay": false,
+                          "group.payment.hasPaid": false
                         }).then(async () => {
                           const q = query(collection(db, "contributions"), where("groupId", "==", groupId));
                           await getDocs(q).then((contributionsSnap) => {
