@@ -77,7 +77,10 @@ export default async function handler(req, res) {
                     updateDoc(doc(db, "groups", groupId), { "members": members }).then(() => {
 
                       members.forEach(async (member, index) => {
-                        await updateDoc(doc(db, "users", member), { "group.position": index + 1 }).then(() => {
+                        await updateDoc(doc(db, "users", member), {
+                          "group.position": index + 1,
+                          "payment.hasPaid": user_.group.admin.isAdmin && false
+                        }).then(() => {
                           res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
                           res.status(302).end();
                         }).catch((error) => {
