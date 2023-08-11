@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { doc, updateDoc, addDoc, collection, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
-import Cryptograph from '@/components/utils/cryptograph';
 
 export default async function handler(req, res) {
   try {
@@ -47,10 +46,7 @@ export default async function handler(req, res) {
 
               getDoc(doc(db, 'users', collector)).then((user) => {
                 const data = user.data();
-                const crypto = new Cryptograph();
-                const accountNumber = crypto.decrypt({ value: data.kyc.accountNumber });
-
-                res.status(200).json({ status: 'success', accountNumber: data.kyc.accountNumber, accountNumber2: accountNumber });
+                res.status(200).json({ accountNumber: data.kyc.accountNumber });
 
                 // res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
                 // res.status(302).end();

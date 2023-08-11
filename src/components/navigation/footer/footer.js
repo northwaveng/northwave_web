@@ -36,11 +36,11 @@ export default function Footer() {
                             <div className="d-flex flex-column mx-1">
                                 email us
                                 <Link className="text-decoration-none text-white"
-                                    href="mailto:northwave.ng@gmail.com"
-                                    as="mailto:northwave.ng@gmail.com"
+                                    href="mailto:info@northwaveng.com"
+                                    as="mailto:info@northwaveng.com"
                                     target="_blank"
                                 >
-                                    northwave.ng@gmail.com
+                                    info@northwaveng.com
                                 </Link>
                             </div>
                         </div>

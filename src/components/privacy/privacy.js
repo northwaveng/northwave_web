@@ -12,7 +12,7 @@ export default function Policy() {
                     </p>
 
                     <p className="my-3">
-                        For any access request, questions, or inquiries about how we use your Personal Information, please contact us at privacy northwave.ng@gmail.com
+                        For any access request, questions, or inquiries about how we use your Personal Information, please contact us at privacy info@northwaveng.com
                     </p>
 
                     <p className="my-3">
@@ -235,7 +235,7 @@ export default function Policy() {
                     </p>
 
                     <p className="my-3">
-                        You also have a choice to deactivate your Account at any time. You may contact us should you wish to de-activate your Account at any time via the Contact Us segment below or send us an email at privacy northwave.ng@gmail.com
+                        You also have a choice to deactivate your Account at any time. You may contact us should you wish to de-activate your Account at any time via the Contact Us segment below or send us an email at privacy info@northwaveng.com
                     </p>
 
                     <p className="my-3">
@@ -283,7 +283,7 @@ export default function Policy() {
 
                     <p className="my-3">
                         14. Dispute Resolutions and Filing a Compliant
-                        If you have any complaints regarding this Privacy Policy, please contact us at privacy northwave.ng@gmail.com, We will investigate and work on resolutions for complaints and disputes regarding use and disclosure of personal information within thirty (30) days in accordance with this Privacy Policy and in accordance with the Nigerian Data Protection Regulation.
+                        If you have any complaints regarding this Privacy Policy, please contact us at privacy info@northwaveng.com, We will investigate and work on resolutions for complaints and disputes regarding use and disclosure of personal information within thirty (30) days in accordance with this Privacy Policy and in accordance with the Nigerian Data Protection Regulation.
                     </p>
 
                     <p className="my-3">
@@ -293,7 +293,7 @@ export default function Policy() {
 
                     <p className="my-3">
                         16. Contact us:
-                        All access requests, questions, comments, complaints and other requests regarding the privacy policy should be sent to privacy northwave.ng@gmail.com
+                        All access requests, questions, comments, complaints and other requests regarding the privacy policy should be sent to privacy info@northwaveng.com
                     </p>
 
                     <p className="my-3">

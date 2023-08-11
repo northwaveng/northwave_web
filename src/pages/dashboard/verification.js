@@ -56,7 +56,7 @@ export default function VerificationPage() {
             addressCountry: "NG"
         },
         "+234-703-318-0897",
-        "northwave.ng@gmail.com",
+        "info@northwaveng.com",
         baseURL,
         `${baseURL}/logo/logo_text_dark_trans.png`,
         "Cash, Credit Card, Transfer",

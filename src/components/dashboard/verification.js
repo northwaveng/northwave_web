@@ -35,30 +35,17 @@ export default function Signin() {
         await getDownloadURL(idRef).then(async (idImage) => {
             toast.info("Verifying...")
 
-            // cryptograph class
-            const crypto = new Cryptograph();
-
-            // encrypted bank data
-            const encryptedAccountNumber =
-                crypto.encrypt({ value: accountNumber.toLowerCase() });
-            const encryptedWorkAddress =
-                crypto.encrypt({ value: workAddress.toLowerCase() });
-            const encryptedMonthlyIncome =
-                crypto.encrypt({ value: monthlyIncome.toLowerCase() });
-            const encryptedBvn = crypto.encrypt({ value: bvn });
-            const encryptedNin = crypto.encrypt({ value: nin });
-
             // user doc
             const userDoc = doc(db, "users", authUser.email);
 
             // Data to update
             const data = {
                 "kyc.id": idImage,
-                "kyc.accountNumber": encryptedAccountNumber,
-                "kyc.workAddress": encryptedWorkAddress,
-                "kyc.monthlyIncome": encryptedMonthlyIncome,
-                "kyc.bvn": encryptedBvn,
-                "kyc.nin": encryptedNin,
+                "kyc.accountNumber": accountNumber,
+                "kyc.workAddress": workAddress.toLowerCase(),
+                "kyc.monthlyIncome": monthlyIncome,
+                "kyc.bvn": bvn,
+                "kyc.nin": nin,
             };
 
             // Update the data

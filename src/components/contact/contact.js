@@ -114,15 +114,15 @@ export default function Contact() {
                             </div>
                             <div className="col-sm-6">
                                 <Link className="text-decoration-none secondary card shadow-sm m-2 p-2"
-                                    href="mailto:northwave.ng@gmail.com"
-                                    as="mailto:northwave.ng@gmail.com"
+                                    href="mailto:info@northwaveng.com"
+                                    as="mailto:info@northwaveng.com"
                                     target="_blank"
                                 >
                                     <DirectSend className="mx-1" size="18" />
                                     <div className="d-flex flex-column mx-1">
                                         email us
                                         <br />
-                                        northwave.ng@gmail.com
+                                        info@northwaveng.com
                                     </div>
                                 </Link>
                             </div>

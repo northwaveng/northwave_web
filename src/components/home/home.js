@@ -102,7 +102,7 @@ export default function Home() {
 
                                 <div>
                                     <h4>Mission</h4>
-                                    <p className="text-muted">To build a financial free community through collaborative savings in Nigeria.</p>
+                                    <p className="text-muted">To build a financially free community through collaborative savings in Nigeria.</p>
                                 </div>
                             </div>
                         </div>
@@ -116,80 +116,46 @@ export default function Home() {
                         <div className="m-2">
                             <h1 className="text-black my-2">FAQs</h1>
 
-                            <div className="mt-3 fw-bold">General</div>
+                            <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
+                                <div className="d-flex justify-content-between">
+                                    <div>General</div>
+                                    <ArrowDown2 className="primary" />
+                                </div>
+                            </a>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq1" role="button" aria-expanded="false" aria-controls="faq1">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            What does NorthWave do?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq1">
+                            <div className="collapse my-2" id="faq1">
+                                <b>
+                                    What does NorthWave do?
+                                </b>
+                                <p className="text-muted">
                                     NorthWave is an indigenous financial institution that empowers people to achieve financial
                                     freedom by saving together with a community of friends, family, and colleagues. We focus
                                     on promoting collaborative savings for shared goals, providing interest-free loans, and
                                     offering financial analytics to track your finances and spending.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How does NorthWave help me save?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq2">
+                                <b>
+                                    How does NorthWave help me save?
+                                </b>
+                                <p className="text-muted">
                                     With NorthWave, you can contribute with your friends, family, or colleagues on a weekly,
                                     monthly, or quarterly basis. This collective savings approach fosters a sense of trust and
                                     accountability, allowing you to save more effectively and reach your financial goals together.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Is NorthWave a registered financial institution?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq3">
+                                <b>
+                                    Is NorthWave a registered financial institution?
+                                </b>
+                                <p className="text-muted">
                                     Yes, NorthWave is a registered company with the Corporate Affairs Commission of the Federal
                                     Republic of Nigeria with RC Number: 2005098. We operate in compliance with all applicable
                                     regulations and strive to provide a secure and transparent financial experience for our users.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
-
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Why is NorthWave better than any offline contributions?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div className="collapse text-muted my-2" id="faq4">
+                                <b>
+                                    Why is NorthWave better than any offline contributions?
+                                </b>
+                                <div className="text-muted">
                                     NorthWave is disruptive to any contribution circles;
                                     <ul>
                                         <li>Easily accessible, just at the click of a button</li>
@@ -204,39 +170,26 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            <div className="mt-3 fw-bold">Contributions</div>
+                            <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq2" role="button" aria-expanded="false" aria-controls="faq2">
+                                <div className="d-flex justify-content-between">
+                                    <div>Contributions</div>
+                                    <ArrowDown2 className="primary" />
+                                </div>
+                            </a>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How much can I contribute with NorthWave?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq5">
+                            <div className="collapse my-2" id="faq2">
+                                <b>
+                                    How much can I contribute with NorthWave?
+                                </b>
+                                <p className="text-muted">
                                     You can start your contribution circle with as low as ₦5,000 (Five thousand Naira).
                                     We do not have an upper limit.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq6" role="button" aria-expanded="false" aria-controls="faq6">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How does a contribution circle on NorthWave work?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <div className="collapse text-muted my-2" id="faq6">
+                                <b>
+                                    How does a contribution circle on NorthWave work?
+                                </b>
+                                <div className="text-muted">
                                     Your contribution circle is your friends, family, colleagues, or other users on NorthWave
                                     that you pool money together on a weekly, monthly, or quarterly basis. Here is how it works:
 
@@ -248,79 +201,39 @@ export default function Home() {
                                         <li>You, as the circle leader, get the final payout with some extra money!</li>
                                     </ul>
                                 </div>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            As the circle leader, what are my responsibilities?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    As the circle leader, what are my responsibilities?
+                                </b>
+                                <p className="text-muted">
                                     As the circle leader, you have the ability to invite and approve requests
                                     to join your contribution circle. You can send reminders to your circle members once
                                     it&apos;s contribution week. You can create as many contribution circles as you want - with
                                     unique names.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Can other users I don&apos;t know join my contributions circle?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    Can other users I don&apos;t know join my contributions circle?
+                                </b>
+                                <p className="text-muted">
                                     Yes. Other users in the NorthWave community can send a request through our app to
                                     join your contribution circle.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Why should I trust that other users will pay their contributions if I do not know them?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    Why should I trust that other users will pay their contributions if I do not know them?
+                                </b>
+                                <p className="text-muted">
                                     Each user on the NorthWave platform is bound by a legal contract document upon signing up,
                                     to which they agree to our terms of service, and a breach can result in a penalty. We also
                                     employ a comprehensive solution for identity verification, bank verification, and card
                                     verification, all backed by top-notch security measures.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            What are the payment methods?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    What are the payment methods?
+                                </b>
+                                <p className="text-muted">
                                     All the payments are automated. You can select either &quot;Online Payment&quot;
                                     (which will be deducted automatically through your debit card or bank transfer)
                                     or &quot;Cash Payment&quot;(which will be paid in cash to the circle leader). Once you
@@ -329,40 +242,20 @@ export default function Home() {
                                     If you opt for &quot;Cash Payment,&quot; you are responsible for ensuring timely payment
                                     to the circle leader within the contribution week.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Can I earn with NorthWave?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    Can I earn with NorthWave?
+                                </b>
+                                <p className="text-muted">
                                     Yes! As the circle leader, you can earn a 2% cash bonus per contribution circle
                                     you create upon payout. The more people you have in your contribution circle,
                                     the more you earn.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How can I start a contribution circle today?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    How can I start a contribution circle today?
+                                </b>
+                                <p className="text-muted">
                                     To become a part of the NorthWave community and embark on your journey toward
                                     financial freedom, you can download our app from PlayStore and follow the simple
                                     registration process. Once registered, you can invite friends, family, or
@@ -370,21 +263,18 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div className="mt-3 fw-bold">Fees & Charges</div>
+                            <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq3" role="button" aria-expanded="false" aria-controls="faq3">
+                                <div className="d-flex justify-content-between">
+                                    <div>Fees & Charges</div>
+                                    <ArrowDown2 className="primary" />
+                                </div>
+                            </a>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How much do you charge?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                            <div className="collapse my-2" id="faq3">
+                                <b>
+                                    How much do you charge?
+                                </b>
+                                <p className="text-muted">
                                     Simple! We charge a low percentage service fee on contributions and payouts. The circle
                                     leader, who will be the last to receive the payout in a circle, can earn a 2% cash bonus!
                                     All the fees will be deducted per contribution and payout. You can view all the payment
@@ -392,121 +282,75 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div className="mt-3 fw-bold">Safety & Security</div>
+                            <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq4" role="button" aria-expanded="false" aria-controls="faq4">
+                                <div className="d-flex justify-content-between">
+                                    <div>Safety & Security</div>
+                                    <ArrowDown2 className="primary" />
+                                </div>
+                            </a>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Is my money and personal information safe with NorthWave?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                            <div className="collapse my-2" id="faq4">
+                                <b>
+                                    Is my money and personal information safe with NorthWave?
+                                </b>
+                                <p className="text-muted">
                                     Absolutely. With our end-to-end encryption, all your personal details, financial data,
                                     and verification documents are securely encrypted on your device before transmission.
                                     Only authorized parties can decrypt this information, ensuring that your data remains
                                     private and confidential.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How secure is NorthWave&apos;s verification process?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    How secure is NorthWave&apos;s verification process?
+                                </b>
+                                <p className="text-muted">
                                     At NorthWave, we prioritize the security and privacy of our users&apos; data. Our app employs a
                                     comprehensive solution for identity verification, bank verification, and card verification,
                                     all backed by top-notch security measures. We use end-to-end encryption throughout the
                                     entire verification process to safeguard sensitive user data, making it inaccessible to
                                     any unauthorized parties.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Why do you need my BVN?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    Why do you need my BVN?
+                                </b>
+                                <p className="text-muted">
                                     Collecting your BVN helps us verify your identity and links your bank account to our app securely.
                                 </p>
                             </div>
 
-                            <div className="mt-3 fw-bold">Other Services</div>
+                            <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq5" role="button" aria-expanded="false" aria-controls="faq5">
+                                <div className="d-flex justify-content-between">
+                                    <div>Other Services</div>
+                                    <ArrowDown2 className="primary" />
+                                </div>
+                            </a>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            Does NorthWave offer loans?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                            <div className="collapse my-2" id="faq5">
+                                <b>
+                                    Does NorthWave offer loans?
+                                </b>
+                                <p className="text-muted">
                                     Through our community savings model, you can apply for interest-free loans when you need
                                     financial assistance. All loans are backed by the collective contributions of the community,
                                     enabling members to support each other without incurring additional interest charges.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            How can I track my finances and spending with NorthWave?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    How can I track my finances and spending with NorthWave?
+                                </b>
+                                <p className="text-muted">
                                     Our app includes powerful financial analytics tools that enable you to monitor and analyze
                                     your financial activities. You can gain insights into your savings progress, spending habits,
                                     and more, helping you make informed financial decisions.
                                 </p>
-                            </div>
 
-                            <div>
-                                <a className="btn btn-lg shadow-sm my-2 w-100" data-bs-toggle="collapse" href="#faq7" role="button" aria-expanded="false" aria-controls="faq7">
-                                    <div className="d-flex justify-content-between">
-                                        <div>
-                                            What should I do if I need help?
-                                        </div>
-                                        <div>
-                                            <ArrowDown2 className="primary" />
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <p className="collapse text-muted my-2" id="faq7">
+                                <b>
+                                    What should I do if I need help?
+                                </b>
+                                <p className="text-muted">
                                     The easiest way to reach us is to tap Support on the NorthWave app and then tap Chat With Us.
-                                    You can also send an email to northwave.ng@gmail.com or call +234 7033180897
+                                    You can also send an email to info@northwaveng.com or call +234 7033180897
                                     between 8:00 am and 5:00 pm on weekdays.
                                 </p>
                             </div>
