@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { doc, updateDoc, addDoc, collection, getDoc, deleteDoc, getDocs, query } from 'firebase/firestore';
+import { doc, updateDoc, addDoc, collection, getDoc, deleteDoc, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/fire_config';
 import { v4 } from 'uuid';
 
