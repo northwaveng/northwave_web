@@ -82,7 +82,7 @@ export default function Group({ user }) {
 
             const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}plan`;
-            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
             const response = await axios.post(url, params, { headers });
 
@@ -122,7 +122,7 @@ export default function Group({ user }) {
                 "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
             });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
-            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
             const response = await axios.post(url, params, { headers });
 
