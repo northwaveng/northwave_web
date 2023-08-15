@@ -18,8 +18,6 @@ export default function Dashboard({ user }) {
     const onCreateGroup = async event => {
         event.preventDefault();
         setLoading(true);
-        toast.info("Creating group...");
-
         if (parseInt(contribution) < 5000) {
             toast.error("Contribution amount must be 5,000 Naira above.");
             setLoading(false);
@@ -27,6 +25,7 @@ export default function Dashboard({ user }) {
             toast.error("Target amount must be above contribution amount.");
             setLoading(false);
         } else {
+            toast.info("Creating group.");
             const id = v4();
 
             const collRef = collection(db, "groups");
@@ -46,7 +45,7 @@ export default function Dashboard({ user }) {
             setDoc(doc(collRef, id), groupDoc)
                 .then(async () => {
                     setLoading(false);
-                    toast.info("Updating status...");
+                    toast.info("Updating status.");
 
                     // user doc
                     const userDoc = doc(db, "users", user.email);

@@ -36,7 +36,7 @@ export default function AddMember({ user }) {
 
     const onAddMembers = async () => {
         setLoading(true);
-        toast.info("Adding members...");
+        toast.info("Adding members.");
 
         // group
         const groupDoc = doc(db, "groups", user.group.id);
