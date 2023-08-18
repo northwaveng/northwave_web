@@ -4,6 +4,7 @@ import { db } from '../../firebase/fire_config';
 import { v4 } from 'uuid';
 
 export default async function handler(req, res) {
+  console.log(req.query);
   try {
     // Get the payment reference from the query parameters
     const { email, reference, groupId, totalContributions } = req.query;
@@ -12,7 +13,7 @@ export default async function handler(req, res) {
     const verifyUrl = `https://api.paystack.co/transaction/verify/${reference}`;
     const config = {
       headers: {
-        "Authorization": `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`,
+        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`,
         "Cache-Control": "no-cache"
       }
     };
@@ -48,7 +49,7 @@ export default async function handler(req, res) {
               getDoc(doc(db, 'users', collector)).then(async (user) => {
                 const user_ = user.data();
                 const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transfer`;
-                const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
+                const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
                 const reference = v4();
                 const adminCommission = target * 0.05;
                 const adminTarget = target + adminCommission
@@ -82,7 +83,7 @@ export default async function handler(req, res) {
                           "group.payment.askAdminToPay": false,
                           "group.payment.hasPaid": false
                         }).then(async () => {
-                          res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
+                          res.setHeader('Location', `${process.env.NEXT_TEST_PUBLIC_DOMAIN}payment_successful`);
                           res.status(302).end();
                         }).catch((error) => {
                           res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
@@ -100,7 +101,7 @@ export default async function handler(req, res) {
                 res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
               });
             } else {
-              res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
+              res.setHeader('Location', `${process.env.NEXT_TEST_PUBLIC_DOMAIN}payment_successful`);
               res.status(302).end();
             }
           }).catch((error) => {
@@ -118,6 +119,6 @@ export default async function handler(req, res) {
       res.status(200).json({ status: 'error', message: 'Payment not successful' });
     }
   } catch (error) {
-    res.status(500).json({ status: 'error', message: 'An error occurred' });
+    res.status(500).json({ status: 'error', message: error.response.data.message });
   }
 }

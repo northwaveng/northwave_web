@@ -82,7 +82,7 @@ export default function Group({ user }) {
 
             const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}plan`;
-            const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
             const response = await axios.post(url, params, { headers });
 
@@ -119,10 +119,10 @@ export default function Group({ user }) {
                 "amount": amount,
                 "plan": group.paystack,
                 "channels": ["card", "bank", "ussd"],
-                "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
+                "callback_url": `${process.env.NEXT_TEST_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
             });
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
-            const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
             const response = await axios.post(url, params, { headers });
 
@@ -133,7 +133,7 @@ export default function Group({ user }) {
                 window.open(authorizationUrl, "_self");
             }
         } catch (error) {
-            toast.error(`Something went wrong: ${error}`);
+            toast.error(`Something went wrong: ${error.response.data.message}`);
         } finally {
             setLoadingStartContri(false);
         }
@@ -310,7 +310,7 @@ export default function Group({ user }) {
                                                             </button>
                                                         </div>
 
-                                                        {member.group.payment.askAdminToPay || member.group.admin.isAdmin &&
+                                                        {member.group.payment.askAdminToPay &&
                                                             <div className="col-6">
                                                                 <button className="btn btn-sm btn-warning fw-bold" onClick={() => onMakePayment(member.email)}>
                                                                     <Bank size={18} /> Pay Now

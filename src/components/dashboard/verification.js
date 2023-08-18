@@ -33,7 +33,7 @@ export default function Signin() {
                 let banks_ = [];
 
                 const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}bank?currency=NGN&country=nigeria`;
-                const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}` };
+                const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}` };
 
                 const response = await axios.get(url, { headers });
 
@@ -67,7 +67,7 @@ export default function Signin() {
             toast.info("Validating account number.");
             const path = `bank/resolve?account_number=${accountNumber}&bank_code=${bankCode}`;
             const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}${path}`;
-            const headers = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}` };
+            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}` };
 
             try {
                 const response = await axios.get(url, { headers });
@@ -85,7 +85,7 @@ export default function Signin() {
 
                             const name = `${snap.data().firstName} ${snap.data().lastName}`;
                             const url_ = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transferrecipient`;
-                            const headers_ = { Authorization: `Bearer ${process.envNEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
+                            const headers_ = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
                             const params_ = JSON.stringify({
                                 "type": "nuban",
                                 "name": name,
