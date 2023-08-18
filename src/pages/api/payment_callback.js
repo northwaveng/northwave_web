@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const verifyUrl = `https://api.paystack.co/transaction/verify/${reference}`;
     const config = {
       headers: {
-        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`,
+        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`,
         "Cache-Control": "no-cache"
       }
     };
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
               getDoc(doc(db, 'users', collector)).then(async (user) => {
                 const user_ = user.data();
                 const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transfer`;
-                const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+                const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`, 'Content-Type': 'application/json' };
                 const reference = v4();
                 const adminCommission = target * 0.05;
                 const adminTarget = target + adminCommission
