@@ -83,7 +83,7 @@ export default async function handler(req, res) {
                           "group.payment.askAdminToPay": false,
                           "group.payment.hasPaid": false
                         }).then(async () => {
-                          res.setHeader('Location', `${process.env.NEXT_TEST_PUBLIC_DOMAIN}payment_successful`);
+                          res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
                           res.status(302).end();
                         }).catch((error) => {
                           res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
@@ -101,7 +101,7 @@ export default async function handler(req, res) {
                 res.status(200).json({ status: 'error', message: `Something is wrong: ${error.message}` });
               });
             } else {
-              res.setHeader('Location', `${process.env.NEXT_TEST_PUBLIC_DOMAIN}payment_successful`);
+              res.setHeader('Location', `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`);
               res.status(302).end();
             }
           }).catch((error) => {

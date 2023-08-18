@@ -114,24 +114,26 @@ export default function Group({ user }) {
             const contribution = parseInt(group.contribution);
             const amount = (contribution + (contribution * 0.05)) * 100;
 
-            const params = JSON.stringify({
-                "email": memberEmail,
-                "amount": amount,
-                "plan": group.paystack,
-                "channels": ["card", "bank", "ussd"],
-                "callback_url": `${process.env.NEXT_TEST_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
-            });
-            const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
-            const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
+            console.log(process.env.NEXT_PUBLIC_DOMAIN);
+            console.log(`${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`);
+            // const params = JSON.stringify({
+            //     "email": memberEmail,
+            //     "amount": amount,
+            //     "plan": group.paystack,
+            //     "channels": ["card", "bank", "ussd"],
+            //     "callback_url": `${process.env.NEXT_PUBLIC_DOMAIN}api/payment_callback?email=${memberEmail}&groupId=${group.id}&totalContributions=${totalContributions}`
+            // });
+            // const url = `${process.env.NEXT_PUBLIC_PAYSTACK_HOSTNAME}transaction/initialize`;
+            // const headers = { Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`, 'Content-Type': 'application/json' };
 
-            const response = await axios.post(url, params, { headers });
+            // const response = await axios.post(url, params, { headers });
 
-            if (response.status === 200 || response.status === 201) {
-                let data = response.data;
-                const authorizationUrl = data["data"]["authorization_url"];
+            // if (response.status === 200 || response.status === 201) {
+            //     let data = response.data;
+            //     const authorizationUrl = data["data"]["authorization_url"];
 
-                window.open(authorizationUrl, "_self");
-            }
+            //     window.open(authorizationUrl, "_self");
+            // }
         } catch (error) {
             toast.error(`Something went wrong: ${error.response.data.message}`);
         } finally {
