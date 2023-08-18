@@ -73,11 +73,11 @@ export default function Group({ user }) {
             toast.info("Starting contribution...");
 
             const contribution = parseInt(group.contribution);
-            const northwaveCharge = (contribution * 0.005); // 0.5 percent
-            let paystackCharge = (contribution * 0.015) + 100; // 1.5% + 100 ngn
-            if (paystackCharge >= 2000) paystackCharge = 2000; // capped at 2,000 ngn
-
-            const charge = northwaveCharge + paystackCharge;
+            const charge = (contribution * 0.005); // 0.5 percent
+            // let paystackCharge = (contribution * 0.015) + 100; // 1.5% + 100 ngn
+            // if (paystackCharge >= 2000) paystackCharge = 2000; // capped at 2,000 ngn
+            // const charge = northwaveCharge + paystackCharge;
+            
             const amount = (contribution + charge) * 100
 
             const params = JSON.stringify({ "name": group.name, "interval": group.mandate, "amount": amount });
