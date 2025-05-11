@@ -22,6 +22,8 @@ export default function handler(req, res) {
         break;
       case "customeridentification.success":
       case "customeridentification.failed":
+      case "assigndedicatedaccount.failed":
+      case "assigndedicatedaccount.success":
         addDoc(collection(db, "messages"), { message: eventData })
           .then(() => {})
           .catch((error) => {
