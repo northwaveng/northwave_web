@@ -15,13 +15,13 @@ export default function PaymentSuccessfulPage() {
         <meta name="description" content={pageDesc} />
         <meta name="keywords" content="northwave, contribution, collection, bank, savings, groups, finance, fintech, software, freedom, community" />
         <meta name="theme-color" content="#346BC8" />
-        <link rel="icon" type="image/x-icon" href="/logo/logo_trans.png" />
+        <link rel="icon" type="images/x-icon" href="/logos/logo_trans.png" />
         <meta name="author" content="NorthWave" />
         <title>{pageName}</title>
 
         <meta property="og:title" content={pageName} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/logo/logo_text.png" />
+        <meta property="og:image" content="/logos/logo_text.png" />
         <meta property="og:image:width" content="1277" />
         <meta property="og:image:height" content="473" />
         <meta property="og:url" content={baseURL} />

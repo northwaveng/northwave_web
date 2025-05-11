@@ -8,7 +8,7 @@
     min-height: 100vh;
     background-color: black;
     color: white;
-    background: url('/image/hero.png') center/cover no-repeat;
+    background: url('/images/hero.png') center/cover no-repeat;
 }
 
 .heroTitle {

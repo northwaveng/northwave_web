@@ -81,7 +81,7 @@ export default function AddMember({ user }) {
                 <div className="row justify-content-center">
                     <div className="col-12 text-center">
                         <img
-                            src="/logo/logo_text_trans.png"
+                            src="/logos/logo_text_trans.png"
                             alt="logo"
                             className="rounded"
                             width={100}

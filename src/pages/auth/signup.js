@@ -46,7 +46,7 @@ export default function SignupPage() {
         "+234-703-318-0897",
         "info@northwaveng.com",
         baseURL,
-        `${baseURL}/logo/logo_text_dark_trans.png`,
+        `${baseURL}/logos/logo_text_dark_trans.png`,
         "Cash, Credit Card, Transfer",
         "NGN, USD, EURO",
         "Mo-Fr 09:00-17:00",
@@ -64,13 +64,13 @@ export default function SignupPage() {
                 <meta name="description" content={pageDesc} />
                 <meta name="keywords" content="northwave, contribution, collection, bank, savings, groups, finance, fintech, software, freedom, community" />
                 <meta name="theme-color" content="#ffffff" />
-                <link rel="icon" type="image/x-icon" href="/logo/logo_trans.png" />
+                <link rel="icon" type="images/x-icon" href="/logos/logo_trans.png" />
                 <meta name="author" content="NorthWave" />
                 <title>{pageName}</title>
 
                 <meta property="og:title" content={pageName} />
                 <meta property="og:type" content="website" />
-                <meta property="og:image" content="/logo/logo_text.png" />
+                <meta property="og:image" content="/logos/logo_text.png" />
                 <meta property="og:image:width" content="1277" />
                 <meta property="og:image:height" content="473" />
                 <meta property="og:url" content={baseURL} />

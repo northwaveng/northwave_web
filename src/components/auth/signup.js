@@ -112,7 +112,7 @@ export default function Signup() {
                         <h4 className="float-md-start mb-0">
                             <Link className="text-decoration-none primary" href="/" as="/">
                                 <img
-                                    src="/logo/logo_trans.png"
+                                    src="/logos/logo_trans.png"
                                     alt="logo"
                                     className="rounded"
                                     width={50}

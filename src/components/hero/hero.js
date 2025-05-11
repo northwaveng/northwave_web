@@ -26,7 +26,7 @@ export default function Hero() {
                     <div className="col-md-6">
                         <div className="m-2">
                             <img
-                                src="/image/phone.png"
+                                src="/images/phone.png"
                                 alt="Phone"
                                 className="img-fluid"
                             />

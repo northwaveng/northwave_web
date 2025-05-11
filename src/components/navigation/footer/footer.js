@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-8 text-white">
-                        <img src="/logo/logo_text_dark_trans.png" alt="logo" width={100} />
+                        <img src="/logos/logo_text_dark_trans.png" alt="logo" width={100} />
 
                         <p className="my-3">
                             We are an indigenous financial institution registered with the Corporate Affairs
