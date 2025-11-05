@@ -1,5 +1,5 @@
 import axios from "axios";
-import { doc, updateDoc, addDoc, collection } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase/fire_config";
 
 export default async function handler(req, res) {
@@ -25,19 +25,17 @@ export default async function handler(req, res) {
       const update = { paymentStatus: "paid", transactionId: data.reference };
 
       await updateDoc(refDoc, update)
-        .then(async () => {
-          await addDoc(collection(db, "contributions"), {}).then(() => {
-            res.setHeader(
-              "Location",
-              `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`
-            );
-            res.status(302).end();
-          });
+        .then(() => {
+          res.setHeader(
+            "Location",
+            `${process.env.NEXT_PUBLIC_DOMAIN}payment_successful`
+          );
+          res.status(302).end();
         })
-        .catch((error) => {
+        .catch((e) => {
           res.status(200).json({
             status: "error",
-            message: `Something is wrong: ${error.message}`,
+            message: `Something is wrong: ${e.message}`,
           });
         });
     } else {
@@ -45,9 +43,7 @@ export default async function handler(req, res) {
         .status(200)
         .json({ status: "error", message: "Payment not successful" });
     }
-  } catch (error) {
-    res
-      .status(500)
-      .json({ status: "error", message: error.response.data.message });
+  } catch (e) {
+    res.status(500).json({ status: "error", message: e.response.data.message });
   }
 }
