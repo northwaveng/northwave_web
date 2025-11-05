@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const verifyUrl = `https://api.paystack.co/transaction/verify/${reference}`;
     const config = {
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_TEST_SECRET_KEY}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_PAYSTACK_LIVE_SECRET_KEY}`,
         "Cache-Control": "no-cache",
       },
     };
