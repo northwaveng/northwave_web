@@ -1,6 +1,6 @@
 import axios from "axios";
 import { doc, updateDoc } from "firebase/firestore";
-import { db } from "../../firebase/fire_config";
+import { db } from "../../firebase/sunshine_fire_config";
 
 export default async function handler(req, res) {
   console.log(req.query);
